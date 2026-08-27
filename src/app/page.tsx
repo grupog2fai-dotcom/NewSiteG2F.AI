@@ -1,44 +1,32 @@
-import Navbar from "@/components/Navbar";
-import Hero from "@/components/Hero";
-import Services from "@/components/Services";
-import About from "@/components/About";
-import HowItWorks from "@/components/HowItWorks";
-import LeadForm from "@/components/LeadForm";
+import { HeroSection } from "@/components/home/HeroSection";
+import { RecognitionSection } from "@/components/home/RecognitionSection";
+import { FrontsSection } from "@/components/home/FrontsSection";
+import { MethodSection } from "@/components/home/MethodSection";
+import { SolutionsSection } from "@/components/home/SolutionsSection";
+import { ComplexitySection } from "@/components/home/ComplexitySection";
+import { IdentitySection } from "@/components/home/IdentitySection";
+import { FinalCTASection } from "@/components/home/FinalCTASection";
+import { organizationSchema, websiteSchema } from "@/lib/structured-data";
 
 export default function Home() {
   return (
-    <main className="flex flex-col min-h-screen">
-      <Navbar />
-      <Hero />
-      <Services />
-      <About />
-      <HowItWorks />
-      <LeadForm />
-
-      {/* Footer */}
-      <footer className="bg-[#0a0a0a] border-t border-[#1a1a1a] py-10">
-        <div className="max-w-[1400px] mx-auto px-6 lg:px-12 flex flex-col md:flex-row items-center justify-between gap-6">
-          <div className="flex items-center gap-2">
-            <div className="w-6 h-6 bg-[#c8a84b] rounded-sm flex items-center justify-center">
-              <span className="text-white font-bold text-[10px]" style={{ fontFamily: 'var(--font-clash)' }}>G2F</span>
-            </div>
-            <span className="text-white font-semibold text-sm" style={{ fontFamily: 'var(--font-clash)' }}>
-              GrupoG2F<span className="text-[#c8a84b]">.IA</span>
-            </span>
-          </div>
-          <p className="text-zinc-600 text-sm text-center" style={{ fontFamily: 'var(--font-satoshi)' }}>
-            © {new Date().getFullYear()} GrupoG2F.IA, Assessoria de Aceleração Empresarial. Todos os direitos reservados.
-          </p>
-          <div className="flex items-center gap-6">
-            <a href="#" className="text-zinc-600 hover:text-zinc-400 text-xs transition-colors" style={{ fontFamily: 'var(--font-satoshi)' }}>
-              Política de Privacidade
-            </a>
-            <a href="#" className="text-zinc-600 hover:text-zinc-400 text-xs transition-colors" style={{ fontFamily: 'var(--font-satoshi)' }}>
-              Termos de Uso
-            </a>
-          </div>
-        </div>
-      </footer>
-    </main>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema()) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema()) }}
+      />
+      <HeroSection />
+      <RecognitionSection />
+      <FrontsSection />
+      <MethodSection />
+      <SolutionsSection />
+      <ComplexitySection />
+      <IdentitySection />
+      <FinalCTASection />
+    </>
   );
 }

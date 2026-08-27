@@ -1,22 +1,21 @@
 @import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&f[]=satoshi@300,400,500,700,900&f[]=melodrama@300,400,500,600,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@800;900&display=swap');
 @import "tailwindcss";
 
 @theme {
   --font-clash: 'Clash Display', system-ui, sans-serif;
   --font-satoshi: 'Satoshi', system-ui, sans-serif;
   --font-melodrama: 'Melodrama', serif;
-  --font-tech: 'Orbitron', system-ui, sans-serif;
-  --color-orange: #c8a84b;
-  --color-orange-dim: #7a621a;
+
+  --color-accent: #c8a84b;
+  --color-accent-dim: #7a621a;
   --color-bg: #0a0a0a;
   --color-surface: #111111;
+  --color-elevated: #161616;
   --color-border: #1f1f1f;
-  /* Font family utilities */
+
   --font-family-clash: var(--font-clash);
   --font-family-satoshi: var(--font-satoshi);
   --font-family-melodrama: var(--font-melodrama);
-  --font-family-tech: var(--font-tech);
 }
 
 @layer base {
@@ -31,7 +30,7 @@
   body {
     @apply antialiased;
     font-family: var(--font-satoshi);
-    background: #0a0a0a;
+    background: var(--color-bg);
     color: #f4f4f4;
   }
 
@@ -40,56 +39,19 @@
     letter-spacing: -0.03em;
     text-wrap: balance;
   }
-
-  .font-serif-italic {
-    font-family: var(--font-melodrama);
-    font-style: italic;
-    font-weight: 500;
-    letter-spacing: -0.01em;
-  }
 }
 
-/* Gradient & Glow Utilities */
-.glow-orange {
-  box-shadow: 0 0 60px rgba(248, 79, 29, 0.25), 0 0 120px rgba(248, 79, 29, 0.10);
-}
-
-/* Noise texture overlay */
-.noise-overlay::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
-  pointer-events: none;
-  z-index: 1;
-}
-
-/* Infinite logo scroll */
-.logos-track {
-  animation: scroll-logos 30s linear infinite;
-}
-
-@layer utilities {
-  @keyframes scroll-logos {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-}
-
-@keyframes scroll-logos {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
-/* Respect reduced-motion preference: pause decorative animations only */
+/* Reduced motion */
 @media (prefers-reduced-motion: reduce) {
-  .logos-track {
-    animation: none;
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
 
-/* Orange border glow */
-.border-glow {
-  border: 1px solid rgba(248, 79, 29, 0.3);
-  box-shadow: inset 0 0 20px rgba(248, 79, 29, 0.05);
+/* Focus visible */
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }

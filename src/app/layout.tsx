@@ -1,19 +1,18 @@
 import type { Metadata } from "next";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Contrate Agora | SEO Local, Agente de IA e Landing Page, GrupoG2F.IA",
-  description:
-    "Pare de perder clientes para a concorrência. Contrate online: SEO Local (R$ 297), Agente de IA para WhatsApp e Landing Page + Tráfego. Resultado garantido ou reembolso.",
-  keywords: "SEO local, agente de IA whatsapp, landing page tráfego pago, automação atendimento, GrupoG2F",
+  title: "G2F — Presença digital e processos para empresas",
+  description: "A G2F organiza a presença digital e os processos da empresa para transformar pontos soltos da operação em uma estrutura mais clara, profissional e preparada para crescer.",
   icons: {
     icon: '/logo_icon.png',
     apple: '/logo_icon.png',
   },
   openGraph: {
-    title: "Contrate Agora | SEO Local, Agente de IA e Landing Page, GrupoG2F.IA",
-    description:
-      "Pare de perder clientes para a concorrência. Contrate online: SEO Local (R$ 297), Agente de IA para WhatsApp e Landing Page + Tráfego. Resultado garantido ou reembolso.",
+    title: "G2F — Presença digital e processos",
+    description: "Estruturação de Presença Local, Presença Web e Automação de Processos.",
     type: "website",
     locale: "pt_BR",
   },
@@ -26,8 +25,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR" className="h-full antialiased dark" data-scroll-behavior="smooth">
-      <body className="min-h-full flex flex-col bg-[#0a0a0a] text-zinc-50 selection:bg-orange-500 selection:text-black">
-        {children}
+      <body className="min-h-full flex flex-col bg-[#0a0a0a] text-zinc-50 selection:bg-[#c8a84b] selection:text-black font-satoshi">
+        <Header />
+        <main className="flex-1 flex flex-col pt-[88px]">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
