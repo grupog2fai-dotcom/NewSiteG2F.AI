@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Grupo G2F AI | Seleção de Portfólio 2026 - Presença Digital para Saúde</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #FAFAF7;
+      --bg-warm: #F4F1EA;
+      --bg-deep: #242B27;
+      --sage: #5C7C65;
+      --sage-soft: #EBF0EC;
+      --sage-hover: #4A6B53;
+      --text-primary: #242422;
+      --text-body: #555550;
+      --text-caption: #85857E;
+      --border: #E5E2DA;
+      --white: #FFFFFF;
+      --sans: 'Outfit', system-ui, -apple-system, sans-serif;
+      --display: 'Cormorant Garamond', Georgia, serif;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      background: var(--bg);
+      color: var(--text-primary);
+      font-family: var(--sans);
+      font-size: 16px;
+      line-height: 1.7;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+    img { display: block; max-width: 100%; }
+    a { text-decoration: none; color: inherit; }
+
+    /* ========== SCROLL REVEAL ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+                  transform 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+
+    /* ========== TOP BAR ========== */
+    .top-bar {
+      background: var(--bg-deep);
+      color: #E8E5DF;
+      padding: 11px 24px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      letter-spacing: 0.02em;
+    }
+    .top-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #73A983;
+      box-shadow: 0 0 0 3px rgba(115, 169, 131, 0.25);
+    }
+
+    /* ========== HEADER / HERO ========== */
+    .hero {
+      padding: clamp(50px, 7vw, 90px) clamp(24px, 5vw, 64px) clamp(40px, 6vw, 70px);
+      max-width: 920px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 18px;
+      border-radius: 100px;
+      background: var(--sage-soft);
+      color: var(--sage);
+      font-size: 0.76rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    .hero-title {
+      font-family: var(--display);
+      font-size: clamp(2.4rem, 4.8vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+    .hero-title i {
+      font-style: italic;
+      color: var(--sage);
+    }
+    .hero-desc {
+      font-size: clamp(1rem, 1.3vw, 1.12rem);
+      color: var(--text-body);
+      max-width: 680px;
+      margin: 0 auto 36px;
+      line-height: 1.8;
+    }
+    .hero-actions {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+    .btn-main {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--sage);
+      color: var(--white);
+      padding: 15px 32px;
+      border-radius: 9px;
+      font-size: 0.92rem;
+      font-weight: 500;
+      transition: all 0.25s;
+      box-shadow: 0 4px 16px rgba(92, 124, 101, 0.25);
+    }
+    .btn-main:hover {
+      background: var(--sage-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(92, 124, 101, 0.35);
+    }
+    .btn-outline {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--white);
+      color: var(--text-primary);
+      border: 1px solid var(--border);
+      padding: 14px 28px;
+      border-radius: 9px;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.2s;
+    }
+    .btn-outline:hover {
+      border-color: var(--text-caption);
+      background: #FDFDFB;
+      transform: translateY(-1px);
+    }
+
+    /* ========== PREVIEW SECTION (STUDIO BROWSER SHOWCASES) ========== */
+    .preview-sec {
+      max-width: 1160px;
+      margin: 0 auto;
+      padding: 0 clamp(20px, 4vw, 48px) clamp(60px, 8vw, 100px);
+    }
+    .preview-sec-header {
+      text-align: center;
+      max-width: 680px;
+      margin: 0 auto 28px;
+    }
+    .preview-sec-header h2 {
+      font-family: var(--display);
+      font-size: clamp(2.2rem, 3.5vw, 3rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      color: var(--text-primary);
+    }
+    .preview-sec-header p {
+      font-size: 0.96rem;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+    .preview-jump-nav {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      margin-bottom: 48px;
+      flex-wrap: wrap;
+    }
+    .jump-pill-btn {
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--text-body);
+      padding: 10px 22px;
+      border-radius: 30px;
+      font-size: 0.85rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .jump-pill-btn:hover {
+      border-color: var(--text-primary);
+      background: #FAF9F6;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.06);
+    }
+    .jump-pill-btn .pill-num {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 2px 7px;
+      border-radius: 12px;
+      background: rgba(0, 0, 0, 0.06);
+      font-weight: 700;
+    }
+    .jump-pill-btn.active {
+      background: var(--text-primary);
+      color: #FFFFFF;
+      border-color: var(--text-primary);
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.15);
+    }
+    .jump-pill-btn.active .pill-num {
+      background: rgba(255, 255, 255, 0.2);
+      color: #FFFFFF;
+    }
+
+    .preview-screens-stack {
+      display: flex;
+      flex-direction: column;
+      gap: 56px;
+    }
+
+    .preview-frame {
+      background: var(--white);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 22px;
+      box-shadow: 0 30px 80px -15px rgba(0, 0, 0, 0.12), 0 0 0 1px rgba(0, 0, 0, 0.03);
+      overflow: hidden;
+      position: relative;
+    }
+    .preview-topbar {
+      height: 48px;
+      background: #F4F2EC;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0 18px;
+      gap: 16px;
+    }
+    .browser-controls {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-shrink: 0;
+    }
+    .browser-dot {
+      width: 11px;
+      height: 11px;
+      border-radius: 50%;
+      border: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .browser-dot.dot-red { background: #FF5F56; }
+    .browser-dot.dot-yellow { background: #FFBD2E; }
+    .browser-dot.dot-green { background: #27C93F; }
+
+    .browser-nav-arrows {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      margin-left: 8px;
+      color: #9C988F;
+    }
+    .browser-nav-btn {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+      color: #8C8880;
+    }
+
+    .browser-url-bar {
+      flex: 1;
+      max-width: 480px;
+      margin: 0 auto;
+      background: #FFFFFF;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 5px 16px;
+      font-size: 0.74rem;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.02);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .browser-url-bar .ssl-icon {
+      color: #2E8B57;
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+    }
+    .browser-status-chip {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.68rem;
+      font-weight: 600;
+      color: var(--text-caption);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      flex-shrink: 0;
+    }
+    .status-live-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2E8B57;
+      box-shadow: 0 0 0 2px rgba(46, 139, 87, 0.25);
+    }
+
+    .preview-body {
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      align-items: center;
+      background: var(--bg);
+      min-height: 480px;
+    }
+    .preview-content {
+      padding: clamp(32px, 5vw, 64px);
+    }
+    .preview-tag {
+      font-size: 0.72rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      color: var(--sage);
+      margin-bottom: 16px;
+      display: block;
+    }
+    .preview-content h3 {
+      font-family: var(--display);
+      font-size: clamp(1.8rem, 2.5vw, 2.3rem);
+      line-height: 1.25;
+      font-weight: 400;
+      margin-bottom: 18px;
+      color: var(--text-primary);
+    }
+    .preview-content p {
+      font-size: 0.94rem;
+      color: var(--text-body);
+      line-height: 1.75;
+      margin-bottom: 26px;
+    }
+    .preview-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 30px;
+    }
+    .preview-meta-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: var(--text-primary);
+    }
+    .preview-meta-item svg {
+      width: 17px;
+      height: 17px;
+      color: var(--sage);
+      flex-shrink: 0;
+    }
+
+    /* Screen Viewport Column (Realistic Desktop UI Simulation for all 3 niches) */
+    .preview-screen-viewport {
+      position: relative;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: clamp(20px, 4vw, 40px);
+      background: linear-gradient(135deg, #F0EDE5 0%, #E6E2D8 100%);
+      overflow: hidden;
+    }
+    .viewport-card-mockup {
+      position: relative;
+      width: 100%;
+      max-width: 380px;
+      border-radius: 18px;
+      overflow: hidden;
+      background: #FFFFFF;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      box-shadow: 0 20px 48px rgba(0, 0, 0, 0.1), 0 4px 12px rgba(0, 0, 0, 0.04);
+      transition: transform 0.3s ease;
+    }
+    .viewport-card-mockup:hover {
+      transform: translateY(-3px);
+    }
+    .mockup-inner-header {
+      padding: 10px 14px;
+      background: #FAF9F6;
+      border-bottom: 1px solid #ECE8E0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .mockup-doctor-name {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      letter-spacing: 0.04em;
+    }
+    .mockup-niche-pill {
+      font-size: 0.62rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 99px;
+      background: rgba(92, 124, 101, 0.12);
+      color: var(--sage);
+    }
+    .mockup-media-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 3.4;
+      overflow: hidden;
+      background: #EAE6DD;
+    }
+    .mockup-media-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .mockup-floating-widget {
+      position: absolute;
+      bottom: 12px;
+      left: 12px;
+      right: 12px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.9);
+      border-radius: 12px;
+      padding: 10px 14px;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+    }
+    .mockup-widget-text strong {
+      display: block;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--text-primary);
+      line-height: 1.2;
+    }
+    .mockup-widget-text span {
+      font-size: 0.65rem;
+      color: var(--text-caption);
+    }
+    .mockup-widget-action {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: #2E8B57;
+      background: rgba(46, 139, 87, 0.1);
+      padding: 4px 8px;
+      border-radius: 6px;
+      white-space: nowrap;
+    }
+
+    /* ========== COMPARATIVO ========== */
+    .compare-sec {
+      background: var(--bg-warm);
+      padding: clamp(60px, 8vw, 100px) clamp(24px, 5vw, 64px);
+    }
+    .compare-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .compare-header {
+      text-align: center;
+      max-width: 620px;
+      margin: 0 auto 50px;
+    }
+    .compare-header h2 {
+      font-family: var(--display);
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      color: var(--text-primary);
+      margin-bottom: 16px;
+    }
+    .compare-header p {
+      color: var(--text-body);
+      font-size: 0.96rem;
+    }
+    .compare-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .compare-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: clamp(32px, 4vw, 44px);
+      position: relative;
+    }
+    .compare-card.positive {
+      border-color: rgba(92, 124, 101, 0.4);
+      box-shadow: 0 12px 36px rgba(92, 124, 101, 0.08);
+    }
+    .compare-label {
+      font-size: 0.72rem;
+      font-weight: 600;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 6px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .compare-card.negative .compare-label {
+      background: #F8ECE9;
+      color: #9E5345;
+    }
+    .compare-card.positive .compare-label {
+      background: var(--sage-soft);
+      color: var(--sage);
+    }
+    .compare-card h3 {
+      font-family: var(--display);
+      font-size: 1.45rem;
+      font-weight: 500;
+      margin-bottom: 20px;
+      color: var(--text-primary);
+    }
+    .compare-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .compare-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.6;
+    }
+    .compare-list li svg {
+      width: 17px;
+      height: 17px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .negative svg { color: #A8594B; }
+    .positive svg { color: var(--sage); }
+
+    /* ========== COMO FUNCIONA (PASSOS) ========== */
+    .steps-sec {
+      padding: clamp(70px, 9vw, 110px) clamp(24px, 5vw, 64px);
+      max-width: 1040px;
+      margin: 0 auto;
+    }
+    .steps-header {
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 56px;
+    }
+    .steps-header h2 {
+      font-family: var(--display);
+      font-size: clamp(2rem, 3.2vw, 2.8rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+    .steps-header p {
+      color: var(--text-body);
+      font-size: 0.96rem;
+    }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .step-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 36px 28px;
+      position: relative;
+      transition: transform 0.25s, box-shadow 0.25s;
+    }
+    .step-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    }
+    .step-num {
+      font-family: var(--display);
+      font-size: 2.2rem;
+      font-weight: 400;
+      color: var(--sage);
+      margin-bottom: 16px;
+      line-height: 1;
+    }
+    .step-card h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text-primary);
+    }
+    .step-card p {
+      font-size: 0.88rem;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    /* ========== PROPOSTA DE VALOR / PREÇO ========== */
+    .offer-sec {
+      background: var(--bg-deep);
+      color: #F0EDE8;
+      padding: clamp(70px, 9vw, 110px) clamp(24px, 5vw, 64px);
+    }
+    .offer-inner {
+      max-width: 740px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .offer-card {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 20px;
+      padding: clamp(36px, 5vw, 56px) clamp(24px, 4vw, 44px);
+      position: relative;
+    }
+    .offer-badge {
+      display: inline-block;
+      background: #C4956A;
+      color: #1A1816;
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 6px 18px;
+      border-radius: 100px;
+      margin-bottom: 24px;
+    }
+    .offer-card h2 {
+      font-family: var(--display);
+      font-size: clamp(2rem, 3.4vw, 2.9rem);
+      font-weight: 400;
+      line-height: 1.2;
+      margin-bottom: 18px;
+      color: #F5F3EF;
+    }
+    .offer-desc {
+      font-size: 0.96rem;
+      color: #A8A49C;
+      max-width: 540px;
+      margin: 0 auto 36px;
+      line-height: 1.75;
+    }
+    .price-box {
+      margin-bottom: 32px;
+    }
+    .price-anchor {
+      font-size: 1.1rem;
+      color: #8C8880;
+      text-decoration: line-through;
+      margin-bottom: 6px;
+    }
+    .price-current {
+      font-family: var(--display);
+      font-size: clamp(3.2rem, 5.5vw, 4.4rem);
+      font-weight: 500;
+      color: #FFFFFF;
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+    .price-installments {
+      font-size: 1rem;
+      font-weight: 500;
+      color: #92B99D;
+    }
+    .offer-included {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 24px 0;
+      margin: 32px 0;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      text-align: left;
+    }
+    .inc-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.86rem;
+      color: #E2DFD8;
+    }
+    .inc-item svg {
+      width: 16px;
+      height: 16px;
+      color: #73A983;
+      flex-shrink: 0;
+    }
+    .offer-cta {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      background: var(--white);
+      color: var(--bg-deep);
+      padding: 16px 36px;
+      border-radius: 9px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      width: 100%;
+      max-width: 440px;
+      transition: all 0.25s;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    }
+    .offer-cta:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 28px rgba(0, 0, 0, 0.3);
+      background: #FAF9F6;
+    }
+    .offer-cta svg {
+      width: 18px;
+      height: 18px;
+      color: #25D366;
+    }
+    .offer-guarantee {
+      font-size: 0.76rem;
+      color: #8C8880;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+    .offer-guarantee svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* ========== FAQ ========== */
+    .faq-sec {
+      padding: clamp(70px, 9vw, 110px) clamp(24px, 5vw, 64px);
+      max-width: 820px;
+      margin: 0 auto;
+    }
+    .faq-header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+    .faq-header h2 {
+      font-family: var(--display);
+      font-size: clamp(2rem, 3.2vw, 2.6rem);
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+    .faq-item {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px 28px;
+      margin-bottom: 14px;
+      transition: border-color 0.2s;
+    }
+    .faq-item:hover {
+      border-color: rgba(92, 124, 101, 0.4);
+    }
+    .faq-q {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--text-primary);
+      margin-bottom: 8px;
+    }
+    .faq-a {
+      font-size: 0.9rem;
+      color: var(--text-body);
+      line-height: 1.7;
+    }
+
+    /* ========== FOOTER ========== */
+    .footer {
+      border-top: 1px solid var(--border);
+      padding: 36px clamp(24px, 5vw, 64px);
+      text-align: center;
+      font-size: 0.78rem;
+      color: var(--text-caption);
+      background: var(--bg);
+    }
+    .footer-brand {
+      font-family: var(--display);
+      font-size: 1.05rem;
+      color: var(--text-primary);
+      margin-bottom: 6px;
+      display: block;
+    }
+
+    /* ========== WHATSAPP FLOAT ========== */
+    .wpp-float {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 90;
+      width: 56px;
+      height: 56px;
+      background: #25D366;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 16px rgba(37, 211, 102, 0.35);
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .wpp-float:hover {
+      transform: scale(1.08);
+      box-shadow: 0 8px 24px rgba(37, 211, 102, 0.45);
+    }
+    .wpp-float svg {
+      width: 26px;
+      height: 26px;
+      fill: #fff;
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 820px) {
+      .preview-body { grid-template-columns: 1fr; }
+      .preview-screen-viewport { padding: 24px 16px; }
+      .viewport-card-mockup { max-width: 100%; }
+      .compare-grid { grid-template-columns: 1fr; }
+      .steps-grid { grid-template-columns: 1fr; }
+      .offer-included { grid-template-columns: 1fr; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- TOP STATUS BAR -->
+<div class="top-bar">
+  <div class="top-dot"></div>
+  <span>Programa de Cases 2026: Seleção restrita para 10 profissionais de saúde</span>
+</div>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-eyebrow">Grupo G2F AI • Estruturação Digital para Profissionais da Saúde</div>
+  <h1 class="hero-title">
+    Sua presença digital no mesmo nível de<br>
+    <i>cuidado do seu consultório clínico.</i>
+  </h1>
+  <p class="hero-desc">
+    Substitua links genéricos e páginas improvisadas por um endereço exclusivo,
+    desenhado com elegância para transmitir autoridade e converter pacientes particulares.
+    Tudo pronto em até 48 horas, sem tomar o seu tempo.
+  </p>
+  <div class="hero-actions">
+    <a href="#proposta" class="btn-main">
+      <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+      Garantir Minha Vaga no WhatsApp
+    </a>
+    <a href="#demonstracao" class="btn-outline">
+      Ver Modelos de Demonstração
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+    </a>
+  </div>
+</header>
+
+<!-- DEMONSTRAÇÃO DOS 3 MODELOS (CADA UM COM SUA PRÓPRIA TELA DE COMPUTADOR) -->
+<section class="preview-sec" id="demonstracao">
+  <div class="preview-sec-header reveal">
+    <span class="preview-tag">Modelos Reais de Demonstração</span>
+    <h2>Três especialidades estruturadas com a mesma excelência</h2>
+    <p>Cada especialidade recebe uma arquitetura exclusiva, tipografia de alta classe e condução estratégica para o seu WhatsApp particular.</p>
+  </div>
+
+  <div class="preview-jump-nav reveal">
+    <a href="#demo-psicologia" class="jump-pill-btn active">
+      <span class="pill-num">01</span>
+      Saúde Mental (Dra. Camila)
+    </a>
+    <a href="#demo-nutricao" class="jump-pill-btn">
+      <span class="pill-num">02</span>
+      Nutrição Clínica (Dra. Mariana)
+    </a>
+    <a href="#demo-ortopedia" class="jump-pill-btn">
+      <span class="pill-num">03</span>
+      Medicina &amp; Ortopedia (Dr. Fernando)
+    </a>
+  </div>
+
+  <div class="preview-screens-stack">
+    <!-- MODELO 01: PSICOLOGIA (TELA DE COMPUTADOR DEDICADA) -->
+    <div class="preview-frame reveal" id="demo-psicologia">
+      <div class="preview-topbar">
+        <div class="browser-controls">
+          <div class="browser-dot dot-red" title="Fechar"></div>
+          <div class="browser-dot dot-yellow" title="Minimizar"></div>
+          <div class="browser-dot dot-green" title="Expandir"></div>
+          <div class="browser-nav-arrows">
+            <span class="browser-nav-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
+            <span class="browser-nav-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+        <div class="browser-url-bar">
+          <svg class="ssl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>https://<strong>dracamilanovaes.com.br</strong></span>
+        </div>
+        <div class="browser-status-chip">
+          <span class="status-live-dot"></span>
+          <span>Modelo 01 · Saúde Mental</span>
+        </div>
+      </div>
+      <div class="preview-body">
+        <div class="preview-content">
+          <span class="preview-tag">Modelo 01: Acolhimento e Terapia</span>
+          <h3>Dra. Camila Novaes: Psicologia Clínica</h3>
+          <p>
+            Estrutura editorial e humanizada pensada para a rotina de consultório:
+            apresentação do método clínico, áreas de atendimento, espaço acolhedor,
+            depoimentos e agendamento que conduz o paciente ao seu WhatsApp com contexto prévio.
+          </p>
+          <div class="preview-meta">
+            <div class="preview-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Personalizado para Psicólogas, Psicanalistas e Terapeutas
+            </div>
+            <div class="preview-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              100% responsivo e fluido para celulares
+            </div>
+            <div class="preview-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Linguagem acolhedora com total respeito ao código de ética
+            </div>
+          </div>
+          <a href="modelo-psicologa.html" target="_blank" class="btn-main">
+            Navegar no Modelo de Psicologia
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="preview-screen-viewport">
+          <div class="viewport-card-mockup">
+            <div class="mockup-inner-header">
+              <span class="mockup-doctor-name">Dra. Camila Novaes</span>
+              <span class="mockup-niche-pill">Psicologia Clínica</span>
+            </div>
+            <div class="mockup-media-frame">
+              <img src="https://images.unsplash.com/photo-1573497620053-ea5300f94f21?w=800&h=900&fit=crop&crop=faces" alt="Demonstração do site clínico Dra Camila" loading="lazy">
+              <div class="mockup-floating-widget">
+                <div class="mockup-widget-text">
+                  <strong>Psicoterapia Humanizada</strong>
+                  <span>Presencial nos Jardins &amp; Online</span>
+                </div>
+                <span class="mockup-widget-action">CRP Ativo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODELO 02: NUTRIÇÃO CLÍNICA (TELA DE COMPUTADOR DEDICADA) -->
+    <div class="preview-frame reveal" id="demo-nutricao">
+      <div class="preview-topbar">
+        <div class="browser-controls">
+          <div class="browser-dot dot-red" title="Fechar"></div>
+          <div class="browser-dot dot-yellow" title="Minimizar"></div>
+          <div class="browser-dot dot-green" title="Expandir"></div>
+          <div class="browser-nav-arrows">
+            <span class="browser-nav-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
+            <span class="browser-nav-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+        <div class="browser-url-bar">
+          <svg class="ssl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>https://<strong>dramarianacosta.com.br</strong></span>
+        </div>
+        <div class="browser-status-chip">
+          <span class="status-live-dot" style="background: #2E8B57;"></span>
+          <span>Modelo 02 · Nutrição Clínica</span>
+        </div>
+      </div>
+      <div class="preview-body">
+        <div class="preview-content">
+          <span class="preview-tag">Modelo 02: Nutrição e Longevidade</span>
+          <h3>Dra. Mariana Costa: Nutrição Clínica</h3>
+          <p>
+            Estrutura desenhada para destacar autoridade científica, emagrecimento consciente
+            e equilíbrio metabólico: pilares de acompanhamento, método passo a passo,
+            depoimentos com métricas de saúde e canal de avaliação direta no WhatsApp.
+          </p>
+          <div class="preview-meta">
+            <div class="preview-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Hero editorial de luxo com widgets biomarcadores e simulador clínico
+            </div>
+            <div class="preview-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Comparativo de alto impacto: Dieta Restritiva vs. Método Metabólico
+            </div>
+            <div class="preview-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Acordeão fluido de especialidades e checklist completo da consulta
+            </div>
+          </div>
+          <a href="modelo-nutricionista.html" target="_blank" class="btn-main">
+            Navegar no Modelo de Nutrição
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="preview-screen-viewport">
+          <div class="viewport-card-mockup">
+            <div class="mockup-inner-header">
+              <span class="mockup-doctor-name">Dra. Mariana Costa</span>
+              <span class="mockup-niche-pill" style="background: rgba(46, 139, 87, 0.12); color: #2E8B57;">Nutrição &amp; Metabolismo</span>
+            </div>
+            <div class="mockup-media-frame">
+              <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=800&h=900&fit=crop&crop=faces" alt="Dra Mariana Costa Nutricionista" loading="lazy">
+              <div class="mockup-floating-widget">
+                <div class="mockup-widget-text">
+                  <strong>InBody 770 · Bioimpedância</strong>
+                  <span>Modulação do Eixo Intestino-Cérebro</span>
+                </div>
+                <span class="mockup-widget-action" style="color: #2E8B57; background: rgba(46, 139, 87, 0.1);">CRN-3</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODELO 03: MEDICINA & ORTOPEDIA (TELA DE COMPUTADOR DEDICADA) -->
+    <div class="preview-frame reveal" id="demo-ortopedia">
+      <div class="preview-topbar">
+        <div class="browser-controls">
+          <div class="browser-dot dot-red" title="Fechar"></div>
+          <div class="browser-dot dot-yellow" title="Minimizar"></div>
+          <div class="browser-dot dot-green" title="Expandir"></div>
+          <div class="browser-nav-arrows">
+            <span class="browser-nav-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg></span>
+            <span class="browser-nav-btn"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg></span>
+          </div>
+        </div>
+        <div class="browser-url-bar">
+          <svg class="ssl-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+          <span>https://<strong>drfernandogalha.com.br</strong></span>
+        </div>
+        <div class="browser-status-chip">
+          <span class="status-live-dot" style="background: #7A1C2C;"></span>
+          <span>Modelo 03 · Ortopedia Cirúrgica</span>
+        </div>
+      </div>
+      <div class="preview-body">
+        <div class="preview-content">
+          <span class="preview-tag">Modelo 03: Medicina Cirúrgica e Precisão</span>
+          <h3>Dr. Fernando Galha: Ortopedia e Biomecânica</h3>
+          <p>
+            Estrutura médica de alto impacto visual com mapa 3D interativo de articulações e dores,
+            especificações cirúrgicas e quiz de triagem clínica em 3 etapas que entrega o paciente qualificado no WhatsApp.
+          </p>
+          <div class="preview-meta">
+            <div class="preview-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Mapa anatômico com pontos interativos de joelho, ombro e quadril
+            </div>
+            <div class="preview-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Quiz de autoavaliação em 3 etapas com triagem de sintomas
+            </div>
+            <div class="preview-meta-item">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+              Estética de luxo minimalista Pearl e Burgundy com autoridade médica
+            </div>
+          </div>
+          <a href="ortopedia/index.html" target="_blank" class="btn-main">
+            Navegar no Modelo de Ortopedia
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+          </a>
+        </div>
+        <div class="preview-screen-viewport">
+          <div class="viewport-card-mockup">
+            <div class="mockup-inner-header">
+              <span class="mockup-doctor-name">Dr. Fernando Galha</span>
+              <span class="mockup-niche-pill" style="background: rgba(122, 28, 44, 0.12); color: #7A1C2C;">Ortopedia &amp; Biomecânica</span>
+            </div>
+            <div class="mockup-media-frame">
+              <img src="ortopedia/assets/doctor.jpg" alt="Dr Fernando Galha Ortopedia" loading="lazy">
+              <div class="mockup-floating-widget">
+                <div class="mockup-widget-text">
+                  <strong>Preservação Articular</strong>
+                  <span>Membro Titular SBOT · Artroscopia</span>
+                </div>
+                <span class="mockup-widget-action" style="color: #7A1C2C; background: rgba(122, 28, 44, 0.1);">CRM-SP</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPARATIVO -->
+<section class="compare-sec">
+  <div class="compare-inner">
+    <div class="compare-header reveal">
+      <h2>A diferença percebida pelo seu paciente</h2>
+      <p>O paciente que busca atendimento particular avalia sua autoridade nos primeiros 5 segundos.</p>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card negative reveal">
+        <span class="compare-label">Como a maioria faz</span>
+        <h3>Link solto na biografia</h3>
+        <ul class="compare-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Sensação de amadorismo para quem avalia pagar uma consulta particular.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            O paciente chega no WhatsApp frio, sem entender sua abordagem ou metodologia.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Horas gastas respondendo curiosos que acham a consulta cara.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            Nenhum destaque para seu espaço, sua formação ou seus diferenciais.
+          </li>
+        </ul>
+      </div>
+
+      <div class="compare-card positive reveal reveal-delay-1">
+        <span class="compare-label">Seu novo consultório digital</span>
+        <h3>Página profissional de alto padrão</h3>
+        <ul class="compare-list">
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Design editorial alinhado à sua identidade visual e suas fotografias.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            Explicação acolhedora sobre o que esperar do primeiro atendimento.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            O paciente clica no WhatsApp já decidido a agendar e ciente do valor.
+          </li>
+          <li>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+            No ar em até 48 horas, sem você precisar configurar ferramentas técnicas.
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA (PASSO A PASSO) -->
+<section class="steps-sec">
+  <div class="steps-header reveal">
+    <h2>Atrito zero para a sua rotina</h2>
+    <p>Sabemos que o seu foco deve estar nos atendimentos clínicos, não em criar sites.</p>
+  </div>
+
+  <div class="steps-grid">
+    <div class="step-card reveal">
+      <div class="step-num">1</div>
+      <h3>Você nos envia suas informações</h3>
+      <p>
+        Sem formulários complexos. Pelo próprio WhatsApp, você nos envia seu perfil,
+        suas fotos preferidas e um áudio curto explicando como você atende.
+      </p>
+    </div>
+
+    <div class="step-card reveal reveal-delay-1">
+      <div class="step-num">2</div>
+      <h3>Nossa equipe constrói a página</h3>
+      <p>
+        Estruturamos todo o layout, refinamos os textos com respeito à ética profissional
+        e adaptamos as cores à atmosfera do seu consultório.
+      </p>
+    </div>
+
+    <div class="step-card reveal reveal-delay-2">
+      <div class="step-num">3</div>
+      <h3>No ar em até 48 horas</h3>
+      <p>
+        Você recebe o link para aprovar, realizamos eventuais ajustes finos e a página
+        está pronta para ser colocada no seu perfil do Instagram e materiais.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- PROPOSTA COMERCIAL -->
+<section class="offer-sec" id="proposta">
+  <div class="offer-inner">
+    <div class="offer-card reveal">
+      <span class="offer-badge">Condição Especial de Portfólio</span>
+      <h2>Apenas 10 vagas nesta primeira rodada</h2>
+      <p class="offer-desc">
+        Estamos formando nosso grupo seleto de cases de sucesso para a área da saúde.
+        Por essa razão, abrimos uma taxa simbólica de desenvolvimento em troca do seu
+        depoimento em vídeo ou mensagem quando a página for ao ar.
+      </p>
+
+      <div class="price-box">
+        <div class="price-anchor">Valor regular: R$ 790,00</div>
+        <div class="price-current">R$ 197</div>
+        <div class="price-installments">taxa única à vista no Pix</div>
+      </div>
+
+      <div class="offer-included">
+        <div class="inc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Design responsivo completo
+        </div>
+        <div class="inc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Entrega garantida em até 48 horas
+        </div>
+        <div class="inc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Ajustes finos inclusos
+        </div>
+        <div class="inc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Redação ética e acolhedora
+        </div>
+        <div class="inc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Botão de WhatsApp configurado
+        </div>
+        <div class="inc-item">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+          Hospedagem e suporte guiado
+        </div>
+      </div>
+
+      <a href="https://wa.me/5511962236635?text=Ol%C3%A1%2C%20quero%20garantir%20uma%20vaga%20do%20portf%C3%B3lio%20de%20Landing%20Page%20por%20R%24197." target="_blank" class="offer-cta">
+        <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        Quero Garantir Minha Vaga pelo WhatsApp
+      </a>
+
+      <div class="offer-guarantee">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Garantia de 7 dias: se não aprovar o design, devolvemos 100% do valor.
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq-sec">
+  <div class="faq-header reveal">
+    <h2>Perguntas Frequentes</h2>
+  </div>
+
+  <div class="faq-item reveal">
+    <div class="faq-q">Por que o valor está fixado em R$ 197?</div>
+    <div class="faq-a">
+      Porque estamos produzindo nosso catálogo oficial de cases do primeiro semestre.
+      Em contrapartida à taxa de custo, pedimos apenas que você envie um feedback
+      honesto por áudio ou mensagem após a publicação do seu endereço.
+    </div>
+  </div>
+
+  <div class="faq-item reveal reveal-delay-1">
+    <div class="faq-q">Preciso ter fotos profissionais de estúdio?</div>
+    <div class="faq-a">
+      Não necessariamente. Fotografias feitas com celular em boa iluminação natural
+      funcionam muito bem. Nós realizamos o tratamento e o recorte necessário para
+      harmonizar com o visual editorial.
+    </div>
+  </div>
+
+  <div class="faq-item reveal reveal-delay-2">
+    <div class="faq-q">E se eu precisar alterar cores ou detalhes dos textos?</div>
+    <div class="faq-a">
+      Você conta com uma rodada completa de ajustes finos após a apresentação do rascunho.
+      A página só é finalizada quando estiver exatamente no padrão que você deseja.
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <span class="footer-brand">Grupo G2F AI</span>
+  <p>Programa de Estruturação Digital para Consultórios Particulares. Todos os direitos reservados.</p>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5511962236635?text=Ol%C3%A1%2C%20tenho%20d%C3%BAvidas%20sobre%20a%20Landing%20Page%20do%20portf%C3%B3lio." target="_blank" class="wpp-float" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // Jump Navigation & Scroll Spy for 3 Demo Mockups
+  const jumpPills = document.querySelectorAll('.jump-pill-btn');
+  const demoSections = [
+    document.getElementById('demo-psicologia'),
+    document.getElementById('demo-nutricao'),
+    document.getElementById('demo-ortopedia')
+  ].filter(Boolean);
+
+  function updateActivePill() {
+    const scrollPos = window.scrollY + 220;
+    demoSections.forEach((sec, idx) => {
+      const top = sec.offsetTop;
+      const height = sec.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        jumpPills.forEach(p => p.classList.remove('active'));
+        if (jumpPills[idx]) jumpPills[idx].classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActivePill, { passive: true });
+
+  jumpPills.forEach((pill, idx) => {
+    pill.addEventListener('click', () => {
+      jumpPills.forEach(p => p.classList.remove('active'));
+      pill.classList.add('active');
+    });
+  });
+
+  // Scroll Reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

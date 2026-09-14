@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Fernando Galha | Ortopedia Avançada e Biomecânica da Mobilidade</title>
+    <meta name="description" content="Medicina ortopédica de precisão, reconstrução articular e cirurgia minimamente invasiva. Consultório Dr. Fernando Galha em São Paulo.">
+    
+    <!-- Google Fonts: Syne (Editorial Display) & Plus Jakarta Sans (Clean Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Syne:wght@700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="pearl-minimalist">
+
+    <!-- Ambient Studio Lighting -->
+    <div class="spotlight spotlight-left"></div>
+    <div class="spotlight spotlight-right"></div>
+
+    <!-- Editorial Minimal Navigation -->
+    <header class="header-fixed">
+        <nav class="nav-container">
+            <!-- Ultra-Minimalist Clinic Mark -->
+            <a href="#" class="clinic-logo">
+                <svg class="logo-mark-svg" width="24" height="24" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="16" cy="16" r="13" stroke="var(--burgundy-main)" stroke-width="1.2"/>
+                    <path d="M11 16H21M16 11V21" stroke="var(--burgundy-main)" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="16" cy="16" r="3" fill="var(--burgundy-main)"/>
+                </svg>
+                <div class="logo-text-block">
+                    <span class="logo-main">DR. FERNANDO GALHA</span>
+                    <span class="logo-sub">ORTOPEDIA BIOMECÂNICA</span>
+                </div>
+            </a>
+
+            <div class="nav-menu">
+                <a href="#filosofia">Filosofia</a>
+                <a href="#tratamentos">Especialidades</a>
+                <a href="#corpo-clinico">Dr. Fernando Galha</a>
+                <a href="#avaliacao">Auto-Avaliação</a>
+                <a href="#faq">Dúvidas</a>
+            </div>
+
+            <div class="nav-cta">
+                <a href="https://wa.me/5511962236635?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Fernando%20Galha." target="_blank" rel="noopener noreferrer" class="btn-editorial btn-burgundy">
+                    <span>AGENDAR CONSULTA</span>
+                    <i class="fa-solid fa-arrow-up-right"></i>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero Section: Pearl Minimalist Split Screen -->
+        <section class="hero-editorial" id="hero">
+            <div class="hero-grid">
+                <div class="hero-left">
+                    <div class="hero-meta-tag">CLÍNICA PRIVADA · SÃO PAULO</div>
+                    
+                    <h1 class="hero-heading" id="hero-heading-animated">
+                        Biomecânica da <span class="highlight-italic">mobilidade</span> e precisão articular.
+                    </h1>
+
+                    <p class="hero-lead">
+                        Preservação estrutural de joelho, ombro e quadril. Medicina regenerativa avançada e procedimentos minimamente invasivos para o restabelecimento do movimento natural.
+                    </p>
+
+                    <div class="hero-actions">
+                        <a href="https://wa.me/5511962236635?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Fernando%20Galha." target="_blank" rel="noopener noreferrer" class="btn-hero-primary">
+                            <span>AVALIAÇÃO CLÍNICA</span>
+                            <i class="fa-brands fa-whatsapp"></i>
+                        </a>
+                        <a href="#tratamentos" class="btn-hero-ghost">
+                            <span>EXPLORAR PROCEDIMENTOS</span>
+                        </a>
+                    </div>
+
+                    <div class="hero-metrics">
+                        <div class="metric-block">
+                            <span class="metric-num">15+</span>
+                            <span class="metric-label">Anos de Especialização</span>
+                        </div>
+                        <div class="metric-block">
+                            <span class="metric-num">4.8k</span>
+                            <span class="metric-label">Casos Atendidos</span>
+                        </div>
+                        <div class="metric-block">
+                            <span class="metric-num">SBOT</span>
+                            <span class="metric-label">Membro Titular Efetivo</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero Right: High-Res Pearl Ceramic Joint Art Asset with Clean Hotspots -->
+                <div class="hero-right">
+                    <div class="hero-image-frame">
+                        <img src="assets/hero_joint.jpg" alt="Escultura biomecânica de articulação em cerâmica perolada" class="hero-img-asset">
+                        <div class="frame-overlay-gradient"></div>
+
+                        <!-- Interactive Anatomy Hotspots -->
+                        <div class="hotspot-overlay">
+                            <div class="anatomy-point active" data-joint="joelho" style="top: 65%; left: 48%;" title="Joelho">
+                                <span class="point-pulse"></span>
+                            </div>
+                            <div class="anatomy-point" data-joint="ombro" style="top: 30%; left: 35%;" title="Ombro">
+                                <span class="point-pulse"></span>
+                            </div>
+                            <div class="anatomy-point" data-joint="quadril" style="top: 50%; left: 55%;" title="Quadril">
+                                <span class="point-pulse"></span>
+                            </div>
+                        </div>
+
+                        <!-- Info Card Overlay -->
+                        <div class="hero-info-float glass-tile" id="joint-card-display">
+                            <div class="tile-header">
+                                <span class="tile-tag" id="card-joint-tag">ARTICULAÇÃO EM FOCO</span>
+                                <span class="tile-status"><i class="fa-solid fa-circle"></i> Análise Ativa</span>
+                            </div>
+                            <h3 id="card-joint-title">Preservação Articular de Joelho</h3>
+                            <p id="card-joint-desc">Combinação de infiltração ultraguiada de ácido hialurônico com reabilitação biomecânica individualizada para alívio do atrito cartilaginoso.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Brand / Credibility Bar -->
+        <section class="credibility-strip">
+            <div class="strip-container">
+                <span class="strip-item"><i class="fa-solid fa-award"></i> SOCIEDADE BRASILEIRA DE ORTOPEDIA E TRAUMATOLOGIA</span>
+                <span class="strip-divider">•</span>
+                <span class="strip-item"><i class="fa-solid fa-microscope"></i> FELLOWSHIP EM CIRURGIA ARTROSCÓPICA AVANÇADA</span>
+                <span class="strip-divider">•</span>
+                <span class="strip-item"><i class="fa-solid fa-hospital-user"></i> CORPO CLÍNICO DOS PRINCIPAIS HOSPITAIS DE SP</span>
+            </div>
+        </section>
+
+        <!-- Doctor Profile Section: Refined, Delicate & Minimalist Editorial Card -->
+        <section class="section-profile" id="corpo-clinico">
+            <div class="profile-container glass-box">
+                <div class="profile-grid">
+                    <div class="profile-image-col">
+                        <div class="profile-portrait-frame">
+                            <img src="assets/doctor.jpg" alt="Dr. Fernando Galha - Ortopedista" class="portrait-img">
+                        </div>
+                    </div>
+
+                    <div class="profile-text-col">
+                        <div class="profile-header-subtle">
+                            <span class="eyebrow-accent">CORPO CLÍNICO</span>
+                            <h2 class="profile-title">Dr. Fernando Galha</h2>
+                            <span class="doctor-credentials-line">Médico Ortopedista & Traumatologista · CRM-SP 154.892 | RQE 48.921</span>
+                        </div>
+                        
+                        <p class="profile-lead-text">
+                            Dedicação à medicina articular preservadora, combinando rigor técnico, avaliação biomecânica de precisão e escuta humana acolhedora.
+                        </p>
+
+                        <div class="profile-details-list">
+                            <div class="detail-row">
+                                <span class="detail-dot"></span>
+                                <div class="detail-content">
+                                    <strong>Especialização SBOT & Cirurgia Minimamente Invasiva</strong>
+                                    <p>Formação em centros de referência com foco em artroscopia de joelho e ombro.</p>
+                                </div>
+                            </div>
+                            <div class="detail-row">
+                                <span class="detail-dot"></span>
+                                <div class="detail-content">
+                                    <strong>Abordagem Preservativa & Regenerativa</strong>
+                                    <p>Manutenção da anatomia natural através de viscossuplementação e reabilitação guiada.</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="profile-quote-delicate">
+                            <p>"O objetivo da consulta é ouvir o paciente, compreender sua rotina e desenhar a estratégia mais segura para o seu bem-estar."</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Treatments & Technology: High-Contrast Interactive Showcase -->
+        <section class="section-treatments" id="tratamentos">
+            <div class="container-editorial">
+                <div class="treatments-header">
+                    <h2>Abordagens Terapêuticas & <span class="highlight-italic">Tecnologia</span></h2>
+                    <p>Protocolos individualizados desenhados conforme o grau de acometimento e o perfil de mobilidade de cada paciente.</p>
+                </div>
+
+                <div class="treatments-showcase">
+                    <div class="showcase-nav">
+                        <button class="t-nav-btn active" data-tab="visco">
+                            <span class="t-nav-num">01</span>
+                            <span class="t-nav-title">Viscossuplementação & Terapia Biológica</span>
+                        </button>
+                        <button class="t-nav-btn" data-tab="artro">
+                            <span class="t-nav-num">02</span>
+                            <span class="t-nav-title">Artroscopia Minimamente Invasiva</span>
+                        </button>
+                        <button class="t-nav-btn" data-tab="esporte">
+                            <span class="t-nav-num">03</span>
+                            <span class="t-nav-title">Ortopedia Esportiva & Performance</span>
+                        </button>
+                        <button class="t-nav-btn" data-tab="protese">
+                            <span class="t-nav-num">04</span>
+                            <span class="t-nav-title">Artroplastia / Próteses Articulares</span>
+                        </button>
+                    </div>
+
+                    <div class="showcase-content glass-box">
+                        <div class="tab-pane active" id="tab-visco">
+                            <div class="pane-grid">
+                                <div class="pane-info">
+                                    <span class="pane-tag">MEDICINA REGENERATIVA</span>
+                                    <h3>Infiltração Ultraguiada com Ácido Hialurônico</h3>
+                                    <p>Procedimento ambulatorial rápido que repõe a viscosidade do líquido sinovial. Reduz o atrito na cartilagem desgastada pela artrose, proporcionando alívio prolongado e melhora na mobilidade sem necessidade de internação.</p>
+                                    
+                                    <div class="pane-bullets">
+                                        <div class="bullet-item"><i class="fa-solid fa-check"></i> Aplicação monitorada em tempo real por ultrassonografia</div>
+                                        <div class="bullet-item"><i class="fa-solid fa-check"></i> Preservação do tecido cartilaginoso remanescente</div>
+                                        <div class="bullet-item"><i class="fa-solid fa-check"></i> Retorno imediato às atividades habituais</div>
+                                    </div>
+                                </div>
+                                <div class="pane-media">
+                                    <img src="assets/macro.jpg" alt="Tecnologia Médica de Precisão" class="pane-img">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="tab-artro">
+                            <div class="pane-grid">
+                                <div class="pane-info">
+                                    <span class="pane-tag">CIRURGIA DE PRECISÃO</span>
+                                    <h3>Reparo Artroscópico por Vídeo</h3>
+                                    <p>Técnica com incisões milimétricas para o tratamento de lesões de menisco, reconstrução do ligamento cruzado anterior (LCA) no joelho e reparo de manguito rotador no ombro. Menor trauma tecidual e pós-operatório acelerado.</p>
+                                    
+                                    <div class="pane-bullets">
+                                        <div class="bullet-item"><i class="fa-solid fa-check"></i> Alta hospitalar no mesmo dia na maioria dos casos</div>
+                                        <div class="bullet-item"><i class="fa-solid fa-check"></i> Cicatrizes mínimas e menor resposta inflamatória</div>
+                                    </div>
+                                </div>
+                                <div class="pane-media">
+                                    <img src="assets/macro.jpg" alt="Artroscopia em Vídeo" class="pane-img">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="tab-esporte">
+                            <div class="pane-grid">
+                                <div class="pane-info">
+                                    <span class="pane-tag">ALTO DESEMPENHO</span>
+                                    <h3>Reabilitação do Atleta</h3>
+                                    <p>Tratamento especializado para tendinopatias, entorses e lesões musculares. Foco na recuperação da força funcional e retorno seguro à prática esportiva de alto impacto.</p>
+                                </div>
+                                <div class="pane-media">
+                                    <img src="assets/macro.jpg" alt="Ortopedia Esportiva" class="pane-img">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="tab-pane" id="tab-protese">
+                            <div class="pane-grid">
+                                <div class="pane-info">
+                                    <span class="pane-tag">RECONSTRUÇÃO</span>
+                                    <h3>Artroplastia Total e Parcial</h3>
+                                    <p>Substituição articular com componentes de titânio e cerâmica de altíssima durabilidade. Indicada para quadros avançados de artrose, restaurando o alinhamento anatômico e eliminando a dor persistente.</p>
+                                </div>
+                                <div class="pane-media">
+                                    <img src="assets/hero_joint.jpg" alt="Prótese Articular" class="pane-img">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Interactive Mobility Symptom Evaluator -->
+        <section class="section-evaluator" id="avaliacao">
+            <div class="container-editorial">
+                <div class="evaluator-card glass-box">
+                    <div class="eval-header text-center">
+                        <h2>Auto-Avaliação de <span class="highlight-italic">Mobilidade Articular</span></h2>
+                        <p>Responda às 3 etapas abaixo para obter uma orientação prévia sobre a urgência do seu quadro.</p>
+                    </div>
+
+                    <div class="eval-stepper">
+                        <div class="step-indicator-bar">
+                            <div class="bar-fill" id="eval-progress" style="width: 33%;"></div>
+                        </div>
+                        <span class="step-counter" id="eval-step-counter">Passo 1 de 3: Localização da Dor</span>
+                    </div>
+
+                    <!-- Step 1 -->
+                    <div class="eval-step active" id="eval-step-1">
+                        <h3>Qual região apresenta maior desconforto?</h3>
+                        <div class="options-grid">
+                            <button class="opt-btn" data-step="1" data-val="Joelho (Inchaço, estalos ou limitação de flexão)">
+                                <span class="opt-title">Joelho</span>
+                                <span class="opt-sub">Inchaço, estalos ou limitação ao dobrar</span>
+                            </button>
+                            <button class="opt-btn" data-step="1" data-val="Ombro (Dor ao elevar o braço ou ao deitar)">
+                                <span class="opt-title">Ombro</span>
+                                <span class="opt-sub">Dificuldade para elevar o braço ou dor noturna</span>
+                            </button>
+                            <button class="opt-btn" data-step="1" data-val="Quadril / Coluna (Rigidez ao caminhar)">
+                                <span class="opt-title">Quadril / Coluna</span>
+                                <span class="opt-sub">Rigidez matinal ou limitação ao caminhar</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="eval-step" id="eval-step-2">
+                        <h3>Qual é o tempo de evolução dos sintomas?</h3>
+                        <div class="options-grid">
+                            <button class="opt-btn" data-step="2" data-val="Recente (Menos de 3 semanas)">
+                                <span class="opt-title">Recente</span>
+                                <span class="opt-sub">Trauma recente ou dor aguda (menos de 3 semanas)</span>
+                            </button>
+                            <button class="opt-btn" data-step="2" data-val="Progressivo (1 a 6 meses)">
+                                <span class="opt-title">Progressivo</span>
+                                <span class="opt-sub">Desconforto gradual ao longo dos últimos meses</span>
+                            </button>
+                            <button class="opt-btn" data-step="2" data-val="Crônico (Mais de 6 meses)">
+                                <span class="opt-title">Crônico</span>
+                                <span class="opt-sub">Dor contínua há mais de 6 meses</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="eval-step" id="eval-step-3">
+                        <h3>De que forma a dor impacta suas atividades?</h3>
+                        <div class="options-grid">
+                            <button class="opt-btn" data-step="3" data-val="Leve (Apenas em atividades físicas)">
+                                <span class="opt-title">Impacto Leve</span>
+                                <span class="opt-sub">Limita apenas a prática de esportes intensos</span>
+                            </button>
+                            <button class="opt-btn" data-step="3" data-val="Moderado (Atrapalha subir escadas e o sono)">
+                                <span class="opt-title">Impacto Moderado</span>
+                                <span class="opt-sub">Dificulta subir escadas e prejudica o sono</span>
+                            </button>
+                            <button class="opt-btn" data-step="3" data-val="Severo (Dificulta a locomoção cotidiana)">
+                                <span class="opt-title">Impacto Severo</span>
+                                <span class="opt-sub">Dificulta caminhar e realizar tarefas simples</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Result Step -->
+                    <div class="eval-step" id="eval-step-result">
+                        <div class="result-container text-center">
+                            <div class="result-badge"><i class="fa-solid fa-clipboard-check"></i> Análise Gerada</div>
+                            <h3>Relatório de Avaliação Concluído</h3>
+                            <p class="result-desc" id="eval-result-text">
+                                Com base nas suas respostas, é altamente recomendada uma investigação detalhada com exame físico e exames de imagem para evitar o agravamento do desgaste articular.
+                            </p>
+                            <a href="#" id="eval-wa-link" target="_blank" rel="noopener noreferrer" class="btn-hero-primary btn-xl">
+                                <i class="fa-brands fa-whatsapp"></i>
+                                <span>ENVIAR RESULTADO AO DR. FERNANDO</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section class="section-faq" id="faq">
+            <div class="container-editorial">
+                <div class="faq-header text-center">
+                    <h2>Esclarecimentos <span class="highlight-italic">Frequentes</span></h2>
+                </div>
+
+                <div class="faq-accordion-editorial">
+                    <div class="faq-row">
+                        <button class="faq-btn">
+                            <span>Como funciona o atendimento por reembolso médico?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>O atendimento é realizado em modalidade particular. Fornecemos nota fiscal médica detalhada e relatório técnico para que você possa solicitar o reembolso integral ou parcial junto ao seu plano de saúde conforme os limites do seu contrato.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-row">
+                        <button class="faq-btn">
+                            <span>A Viscossuplementação substitui uma cirurgia?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>Nos estágios iniciais e intermediários de artrose, a aplicação de ácido hialurônico restaura a lubrificação da articulação, reduz a dor e pode postergar por anos a necessidade de um procedimento cirúrgico.</p>
+                        </div>
+                    </div>
+
+                    <div class="faq-row">
+                        <button class="faq-btn">
+                            <span>Qual o tempo médio de recuperação de uma Artroscopia?</span>
+                            <i class="fa-solid fa-plus"></i>
+                        </button>
+                        <div class="faq-content">
+                            <p>Por tratar-se de uma técnica minimamente invasiva com incisões milimétricas, a alta hospitalar ocorre no mesmo dia e a reabilitação orientada inicia-se em poucas 48 horas.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Final Booking Hero CTA -->
+        <section class="section-booking">
+            <div class="container-editorial">
+                <div class="booking-banner glass-box text-center">
+                    <h2>Agende sua consulta de <span class="highlight-italic">avaliação</span>.</h2>
+                    <p>Atendimento humanizado e especializado no Edifício Medical Center, São Paulo.</p>
+
+                    <div class="booking-cta-wrap">
+                        <a href="https://wa.me/5511962236635?text=Ol%C3%A1%2C%20gostaria%20de%20agendar%20uma%20consulta%20de%20avalia%C3%A7%C3%A3o%20com%20o%20Dr.%20Fernando%20Galha." target="_blank" rel="noopener noreferrer" class="btn-hero-primary btn-xl">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            <span>FALAR DIRETAMENTE NO WHATSAPP</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-editorial">
+        <div class="container-editorial footer-flex">
+            <div class="footer-col footer-brand-flex">
+                <svg class="logo-mark-svg" width="20" height="20" viewBox="0 0 32 32" fill="none">
+                    <circle cx="16" cy="16" r="13" stroke="var(--burgundy-main)" stroke-width="1.2"/>
+                    <path d="M11 16H21M16 11V21" stroke="var(--burgundy-main)" stroke-width="1.2" stroke-linecap="round"/>
+                    <circle cx="16" cy="16" r="3" fill="var(--burgundy-main)"/>
+                </svg>
+                <div>
+                    <strong>DR. FERNANDO GALHA</strong>
+                    <p>Ortopedia & Biomecânica da Mobilidade Articular. CRM-SP 154.892 | RQE 48.921</p>
+                </div>
+            </div>
+            <div class="footer-col text-right">
+                <p>&copy; 2026 Dr. Fernando Galha. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

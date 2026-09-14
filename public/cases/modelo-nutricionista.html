@@ -1,0 +1,2274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dra. Mariana Costa | Nutrição Clínica Funcional e Saúde Metabólica</title>
+  <meta name="description" content="Atendimento nutricional individualizado baseado em exames laboratoriais, composição corporal e reeducação sustentável. Consultório em São Paulo e atendimento online.">
+
+  <!-- Google Fonts: Fraunces (Editorial Orgânica) & Plus Jakarta Sans (Precisão Moderna) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg-canvas: #F8FAF6;
+      --bg-card: #FFFFFF;
+      --bg-subtle: #F0F4EC;
+      --bg-dark: #122118;
+      
+      --brand-primary: #21432E;
+      --brand-hover: #173222;
+      --brand-lime: #CEF04A;
+      --brand-lime-text: #122118;
+      --brand-accent: #3F664C;
+      
+      --text-main: #1A261E;
+      --text-muted: #516356;
+      --text-light: #7E9283;
+      --border-subtle: #E2E8DE;
+      --border-focus: #21432E;
+      
+      --font-display: 'Fraunces', Georgia, serif;
+      --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+      
+      --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+      --ease-in-out: cubic-bezier(0.77, 0, 0.175, 1);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-canvas);
+      color: var(--text-main);
+      font-family: var(--font-sans);
+      font-size: 16px;
+      line-height: 1.65;
+      font-weight: 400;
+      -webkit-font-smoothing: antialiased;
+      overflow-x: hidden;
+    }
+
+    img {
+      display: block;
+      max-width: 100%;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    button {
+      font-family: inherit;
+      border: none;
+      background: none;
+      cursor: pointer;
+    }
+
+    /* ========== REVEAL SYSTEM (60fps GPU) ========== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.6s var(--ease-out), transform 0.6s var(--ease-out);
+      will-change: opacity, transform;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-delay-1 { transition-delay: 0.12s; }
+    .reveal-delay-2 { transition-delay: 0.24s; }
+    .reveal-delay-3 { transition-delay: 0.36s; }
+
+    /* ========== HEADER / NAV ========== */
+    .site-header {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 14px clamp(20px, 4vw, 64px);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(248, 250, 246, 0.85);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(226, 232, 222, 0.7);
+      transition: background 0.3s var(--ease-out), box-shadow 0.3s var(--ease-out);
+    }
+    .site-header.scrolled {
+      background: rgba(248, 250, 246, 0.98);
+      box-shadow: 0 4px 20px rgba(18, 33, 24, 0.04);
+    }
+
+    .header-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .brand-mark {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      background: var(--brand-primary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-lime);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    .brand-title {
+      font-family: var(--font-display);
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: var(--text-main);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+    }
+    .brand-sub {
+      font-size: 0.7rem;
+      color: var(--text-light);
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .header-nav {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+    .header-nav a {
+      font-size: 0.86rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: color 0.2s var(--ease-out);
+    }
+    .header-nav a:hover {
+      color: var(--brand-primary);
+    }
+
+    .header-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      padding: 10px 22px;
+      border-radius: 99px;
+      font-size: 0.84rem;
+      font-weight: 600;
+      transition: background 0.2s var(--ease-out), transform 0.15s var(--ease-out);
+    }
+    .header-cta:hover {
+      background: var(--brand-hover);
+      transform: translateY(-1px);
+    }
+    .header-cta:active {
+      transform: scale(0.97);
+    }
+
+    /* ========== HERO — MASTERPIECE ARCHITECTURAL EDITORIAL ========== */
+    .hero-master {
+      position: relative;
+      padding-top: clamp(125px, 15vh, 160px);
+      padding-bottom: clamp(60px, 8vh, 90px);
+      max-width: 1320px;
+      margin: 0 auto;
+      padding-left: clamp(20px, 4vw, 56px);
+      padding-right: clamp(20px, 4vw, 56px);
+      overflow: visible;
+    }
+
+    .hero-master-grid {
+      position: relative;
+      z-index: 1;
+      display: grid;
+      grid-template-columns: 1.12fr 0.88fr;
+      gap: clamp(40px, 5vw, 72px);
+      align-items: center;
+    }
+
+    /* Left Column: Editorial & Precision Typography */
+    .hero-master-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(240, 244, 236, 0.9);
+      border: 1px solid rgba(210, 222, 205, 0.85);
+      padding: 7px 16px;
+      border-radius: 99px;
+      margin-bottom: 24px;
+      width: fit-content;
+      backdrop-filter: blur(8px);
+    }
+    .eyebrow-pulse {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: #2E8B57;
+      box-shadow: 0 0 0 3px rgba(46, 139, 87, 0.25);
+    }
+    .eyebrow-text {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--brand-primary);
+    }
+
+    .hero-master-heading {
+      font-family: var(--font-display);
+      font-size: clamp(2.8rem, 4.4vw, 4.3rem);
+      font-weight: 400;
+      line-height: 1.09;
+      letter-spacing: -0.025em;
+      color: var(--text-main);
+      margin-bottom: 24px;
+      text-wrap: balance;
+    }
+    .hero-master-heading em {
+      font-style: italic;
+      font-weight: 400;
+      color: var(--brand-accent);
+    }
+
+    .hero-master-lead {
+      font-size: clamp(1rem, 1.25vw, 1.15rem);
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 530px;
+      margin-bottom: 38px;
+    }
+
+    .hero-cta-cluster {
+      display: flex;
+      align-items: center;
+      gap: 18px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+
+    .btn-hero-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      padding: 16px 34px;
+      border-radius: 12px;
+      font-size: 0.92rem;
+      font-weight: 600;
+      letter-spacing: 0.01em;
+      box-shadow: 0 8px 24px rgba(33, 67, 46, 0.18);
+      transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out), background 0.2s var(--ease-out);
+    }
+    .btn-hero-primary:hover {
+      background: var(--brand-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 12px 30px rgba(33, 67, 46, 0.28);
+    }
+    .btn-hero-primary:active {
+      transform: translateY(0) scale(0.98);
+    }
+    .btn-hero-primary svg {
+      width: 17px;
+      height: 17px;
+      transition: transform 0.2s var(--ease-out);
+    }
+    .btn-hero-primary:hover svg {
+      transform: translate(2px, -2px);
+    }
+
+    .btn-hero-minimal {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 22px;
+      border-radius: 12px;
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--brand-primary);
+      background: transparent;
+      border: 1px solid var(--border-subtle);
+      transition: all 0.2s var(--ease-out);
+    }
+    .btn-hero-minimal:hover {
+      background: #FFFFFF;
+      border-color: var(--brand-primary);
+      transform: translateY(-2px);
+    }
+
+    /* Proof metrics strip (high precision) */
+    .hero-proof-strip {
+      display: flex;
+      align-items: center;
+      gap: clamp(20px, 3vw, 36px);
+      padding-top: 28px;
+      border-top: 1px solid var(--border-subtle);
+    }
+    .proof-stat-item {
+      display: flex;
+      flex-direction: column;
+    }
+    .stat-val {
+      font-family: var(--font-display);
+      font-size: 1.7rem;
+      font-weight: 500;
+      color: var(--text-main);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .stat-desc {
+      font-size: 0.73rem;
+      font-weight: 500;
+      color: var(--text-light);
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .proof-sep {
+      width: 1px;
+      height: 32px;
+      background: var(--border-subtle);
+    }
+
+    /* Right Column: Art-Directed Architectural Portrait Stage */
+    .hero-art-stage {
+      position: relative;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px 10px;
+    }
+
+    .portrait-composition {
+      position: relative;
+      width: 100%;
+      max-width: 440px;
+    }
+
+    /* Main Photograph Card - Breathing Room, Organic Framing */
+    .portrait-frame {
+      position: relative;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      border-radius: 28px;
+      overflow: hidden;
+      border: 1px solid rgba(226, 232, 222, 0.85);
+      background: #E8ECE4;
+      box-shadow: 0 28px 70px -15px rgba(18, 33, 24, 0.14), 0 10px 24px -10px rgba(18, 33, 24, 0.06);
+    }
+    .portrait-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 20%;
+      display: block;
+      transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1);
+    }
+    .portrait-frame:hover img {
+      transform: scale(1.03);
+    }
+
+    /* Subtle lower baseline bar */
+    .portrait-baseline-bar {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 24px 22px 18px;
+      background: linear-gradient(180deg, transparent 0%, rgba(18, 33, 24, 0.78) 100%);
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      color: #FFFFFF;
+      z-index: 2;
+    }
+    .portrait-doctor-info h4 {
+      font-family: var(--font-display);
+      font-size: 1.18rem;
+      font-weight: 500;
+      line-height: 1.2;
+      color: #FFFFFF;
+      margin-bottom: 2px;
+    }
+    .portrait-doctor-info span {
+      font-size: 0.74rem;
+      color: #D6E4DA;
+      letter-spacing: 0.02em;
+    }
+    .portrait-status-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(206, 240, 74, 0.25);
+      border: 1px solid rgba(206, 240, 74, 0.45);
+      color: var(--brand-lime);
+      padding: 4px 10px;
+      border-radius: 99px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      backdrop-filter: blur(8px);
+    }
+
+    /* Floating Precision Micro-Cards (Art Direction) */
+    .float-card-top {
+      position: absolute;
+      top: -18px;
+      right: -20px;
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid rgba(226, 232, 222, 0.95);
+      border-radius: 16px;
+      padding: 12px 16px;
+      box-shadow: 0 16px 36px rgba(18, 33, 24, 0.09);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      z-index: 3;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      animation: float-pulse-gentle 4.5s ease-in-out infinite alternate;
+    }
+    .float-card-icon {
+      width: 34px;
+      height: 34px;
+      border-radius: 10px;
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-primary);
+      flex-shrink: 0;
+    }
+    .float-card-icon svg {
+      width: 17px;
+      height: 17px;
+    }
+    .float-card-meta {
+      display: flex;
+      flex-direction: column;
+    }
+    .float-card-tag {
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--brand-accent);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+    .float-card-title {
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+
+    .float-card-bottom {
+      position: absolute;
+      bottom: -20px;
+      left: -22px;
+      background: rgba(255, 255, 255, 0.96);
+      border: 1px solid rgba(226, 232, 222, 0.95);
+      border-radius: 18px;
+      padding: 14px 18px;
+      box-shadow: 0 20px 42px rgba(18, 33, 24, 0.1);
+      z-index: 3;
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      animation: float-pulse-gentle 5s ease-in-out infinite alternate-reverse;
+    }
+    .float-bio-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 8px;
+    }
+    .bio-header-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.68rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+    }
+    .bio-pulse-mini {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #2E8B57;
+    }
+    .bio-device-tag {
+      font-size: 0.68rem;
+      color: var(--text-light);
+      background: var(--bg-subtle);
+      padding: 2px 7px;
+      border-radius: 4px;
+      font-weight: 600;
+    }
+    .float-bio-metrics {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .bio-stat-unit {
+      display: flex;
+      flex-direction: column;
+    }
+    .bio-stat-unit strong {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      line-height: 1.2;
+    }
+    .bio-stat-unit span {
+      font-size: 0.68rem;
+      color: var(--text-muted);
+    }
+    .bio-stat-divider {
+      width: 1px;
+      height: 22px;
+      background: var(--border-subtle);
+    }
+
+    @keyframes float-pulse-gentle {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-7px); }
+    }
+
+    /* ========== PILLARS STRIP (Clean & Luminous Transition) ========== */
+    .pillars-strip {
+      background: #FFFFFF;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 32px clamp(20px, 4vw, 56px);
+    }
+    .pillars-container {
+      max-width: 1320px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .pillar-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+    .pillar-num {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      font-weight: 500;
+      color: var(--brand-accent);
+      line-height: 1.2;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .pillar-text h5 {
+      font-size: 0.92rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 4px;
+      line-height: 1.35;
+    }
+    .pillar-text p {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      line-height: 1.55;
+    }
+
+    /* ========== INTERACTIVE SELECTOR (now standalone section) ========== */
+    .selector-sec {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: clamp(80px, 12vh, 140px) clamp(20px, 4vw, 64px);
+    }
+    .selector-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: clamp(40px, 5vw, 80px);
+      align-items: center;
+    }
+    .selector-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 16px;
+      color: var(--text-main);
+    }
+    .selector-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+      max-width: 480px;
+    }
+    .selector-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: 32px;
+      box-shadow: 0 8px 30px rgba(18, 33, 24, 0.04);
+    }
+    .selector-card h4 {
+      font-family: var(--font-display);
+      font-size: 1.25rem;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 8px;
+      color: var(--text-main);
+    }
+    .selector-prompt {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      margin-bottom: 18px;
+    }
+    .focus-buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      margin-bottom: 20px;
+    }
+    .focus-btn {
+      padding: 12px 16px;
+      border-radius: 10px;
+      border: 1px solid var(--border-subtle);
+      background: #FAFBF9;
+      font-size: 0.84rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      text-align: left;
+      transition: all 0.2s var(--ease-out);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .focus-btn:hover {
+      border-color: var(--brand-primary);
+      color: var(--brand-primary);
+      background: #FFFFFF;
+    }
+    .focus-btn.active {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      border-color: var(--brand-primary);
+    }
+    .focus-btn.active .focus-arrow {
+      color: var(--brand-lime);
+      transform: translateX(3px);
+    }
+    .focus-arrow {
+      font-size: 0.75rem;
+      transition: transform 0.2s var(--ease-out);
+    }
+    .focus-result-box {
+      background: var(--bg-subtle);
+      border-radius: 12px;
+      padding: 18px;
+      min-height: 100px;
+      transition: opacity 0.15s;
+    }
+    .focus-result-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--brand-primary);
+      margin-bottom: 4px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .focus-result-text {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ========== VALUE STRIP ========== */
+    .value-strip {
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+      background: #FFFFFF;
+      padding: 24px clamp(20px, 4vw, 64px);
+    }
+    .strip-grid {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 32px;
+    }
+    .strip-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .strip-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 9px;
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-primary);
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .strip-icon svg {
+      width: 18px;
+      height: 18px;
+    }
+    .strip-text h5 {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 3px;
+    }
+    .strip-text p {
+      font-size: 0.78rem;
+      color: var(--text-light);
+      line-height: 1.45;
+    }
+
+    /* ========== SOBRE A DRA. MARIANA ========== */
+    .about-dr-sec {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: clamp(80px, 12vh, 140px) clamp(20px, 4vw, 64px);
+    }
+    .about-dr-grid {
+      display: grid;
+      grid-template-columns: 5fr 6fr;
+      gap: clamp(40px, 5vw, 80px);
+      align-items: center;
+    }
+    .about-dr-photo {
+      border-radius: 18px;
+      overflow: hidden;
+      aspect-ratio: 3 / 4;
+      box-shadow: 0 20px 50px rgba(18, 33, 24, 0.10);
+    }
+    .about-dr-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s var(--ease-out);
+    }
+    .about-dr-photo:hover img {
+      transform: scale(1.03);
+    }
+    .about-dr-text h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 24px;
+      color: var(--text-main);
+    }
+    .about-dr-text p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+      line-height: 1.8;
+      max-width: 520px;
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .about-tag {
+      background: var(--bg-subtle);
+      color: var(--brand-primary);
+      padding: 7px 16px;
+      border-radius: 100px;
+      font-size: 0.78rem;
+      font-weight: 500;
+      transition: background 0.2s var(--ease-out), color 0.2s var(--ease-out);
+    }
+    .about-tag:hover {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+    }
+
+    /* ========== MANIFESTO QUOTE ========== */
+    .manifesto-sec {
+      padding: clamp(50px, 7vw, 90px) clamp(20px, 4vw, 64px);
+      text-align: center;
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .manifesto-sec blockquote {
+      font-family: var(--font-display);
+      font-style: italic;
+      font-size: clamp(1.5rem, 2.6vw, 2.2rem);
+      font-weight: 400;
+      line-height: 1.45;
+      color: var(--text-main);
+      max-width: 720px;
+      margin: 0 auto;
+    }
+    .manifesto-sec cite {
+      display: block;
+      font-family: var(--font-sans);
+      font-style: normal;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: var(--text-light);
+      margin-top: 20px;
+      letter-spacing: 0.04em;
+    }
+
+    /* ========== ESPAÇO CLÍNICO (GALERIA 3 FOTOS) ========== */
+    .clinic-gallery-sec {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: clamp(80px, 12vh, 140px) clamp(20px, 4vw, 64px);
+    }
+    .clinic-gallery-sec h2 {
+      font-family: var(--font-display);
+      font-size: clamp(1.8rem, 2.8vw, 2.6rem);
+      font-weight: 400;
+      line-height: 1.25;
+      margin-bottom: 40px;
+      color: var(--text-main);
+    }
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 14px;
+      height: 540px;
+    }
+    .gallery-grid img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 16px;
+      transition: transform 0.5s var(--ease-out);
+    }
+    .gallery-grid a {
+      display: block;
+      overflow: hidden;
+      border-radius: 16px;
+    }
+    .gallery-grid a:hover img {
+      transform: scale(1.04);
+    }
+    .gallery-big {
+      grid-row: 1 / 3;
+    }
+
+    /* ========== PROTOCOLO EM 4 FASES ========== */
+    .protocol-sec {
+      padding: clamp(70px, 10vh, 120px) clamp(20px, 4vw, 64px);
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .sec-header {
+      margin-bottom: 56px;
+      max-width: 760px;
+    }
+    .sec-tag {
+      font-size: 0.72rem;
+      font-weight: 700;
+      color: var(--brand-accent);
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+      display: block;
+    }
+    .sec-title {
+      font-family: var(--font-display);
+      font-size: clamp(2.2rem, 3.8vw, 3.2rem);
+      font-weight: 400;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+      color: var(--text-main);
+      margin-bottom: 16px;
+      text-wrap: balance;
+    }
+    .sec-desc {
+      font-size: 1rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    .phases-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+    .phase-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 32px 24px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 320px;
+      transition: transform 0.2s var(--ease-out), border-color 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+    }
+    .phase-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--brand-primary);
+      box-shadow: 0 16px 36px rgba(18, 33, 24, 0.06);
+    }
+    .phase-number {
+      font-family: var(--font-display);
+      font-size: 2.8rem;
+      font-weight: 300;
+      color: #CAD5CD;
+      line-height: 1;
+      margin-bottom: 24px;
+    }
+    .phase-body h4 {
+      font-size: 1.08rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 10px;
+      line-height: 1.35;
+    }
+    .phase-body p {
+      font-size: 0.86rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+    .phase-badge {
+      margin-top: 24px;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 6px;
+      background: var(--bg-subtle);
+      color: var(--brand-primary);
+      width: fit-content;
+    }
+
+    /* ========== COMPARATIVO DIETA vs METODO ========== */
+    .compare-container-sec {
+      background: var(--bg-dark);
+      color: #FFFFFF;
+      padding: clamp(70px, 10vh, 120px) clamp(20px, 4vw, 64px);
+    }
+    .compare-wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .compare-top {
+      text-align: center;
+      max-width: 700px;
+      margin: 0 auto 56px;
+    }
+    .compare-top .sec-tag {
+      color: var(--brand-lime);
+    }
+    .compare-top .sec-title {
+      color: #FFFFFF;
+    }
+    .compare-top .sec-desc {
+      color: #A3B6A9;
+    }
+
+    .compare-board {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+    }
+    .board-side {
+      border-radius: 20px;
+      padding: clamp(32px, 4vw, 44px);
+    }
+    .board-old {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    .board-new {
+      background: rgba(33, 67, 46, 0.4);
+      border: 1px solid rgba(206, 240, 74, 0.3);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      position: relative;
+    }
+    .side-pill {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 5px 14px;
+      border-radius: 99px;
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .board-old .side-pill {
+      background: rgba(255, 100, 80, 0.15);
+      color: #FF8F7E;
+    }
+    .board-new .side-pill {
+      background: var(--brand-lime);
+      color: var(--brand-lime-text);
+    }
+    .side-title {
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 400;
+      margin-bottom: 22px;
+    }
+    .board-old .side-title { color: #D6DCD7; }
+    .board-new .side-title { color: #FFFFFF; }
+
+    .side-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .side-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 0.92rem;
+      line-height: 1.6;
+    }
+    .board-old .side-list li { color: #8F9E94; }
+    .board-new .side-list li { color: #E8F0EA; }
+    .side-list svg {
+      width: 18px;
+      height: 18px;
+      flex-shrink: 0;
+      margin-top: 3px;
+    }
+    .board-old svg { color: #E06D5E; }
+    .board-new svg { color: var(--brand-lime); }
+
+    /* ========== ACORDEAO DE ESPECIALIDADES ========== */
+    .specialties-sec {
+      padding: clamp(70px, 10vh, 120px) clamp(20px, 4vw, 64px);
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    .accordion-group {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+    .accordion-item {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 16px;
+      overflow: hidden;
+      transition: border-color 0.25s var(--ease-out);
+    }
+    .accordion-item.active {
+      border-color: var(--brand-primary);
+      box-shadow: 0 6px 24px rgba(18, 33, 24, 0.04);
+    }
+    .accordion-header {
+      width: 100%;
+      padding: 24px 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      text-align: left;
+    }
+    .accordion-header h3 {
+      font-size: 1.12rem;
+      font-weight: 600;
+      color: var(--text-main);
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .acc-number {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--brand-accent);
+      font-weight: 400;
+    }
+    .acc-toggle-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--bg-subtle);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--brand-primary);
+      transition: transform 0.3s var(--ease-out), background 0.2s;
+    }
+    .accordion-item.active .acc-toggle-icon {
+      transform: rotate(45deg);
+      background: var(--brand-primary);
+      color: var(--brand-lime);
+    }
+    
+    /* ACORDEAO SEGURO: grid-template-rows: 0fr -> 1fr com min-height: 0 */
+    .accordion-content {
+      display: grid;
+      grid-template-rows: 0fr;
+      transition: grid-template-rows 0.35s var(--ease-out);
+    }
+    .accordion-item.active .accordion-content {
+      grid-template-rows: 1fr;
+    }
+    .accordion-inner {
+      overflow: hidden;
+      min-height: 0;
+      padding: 0 28px 24px 28px;
+      font-size: 0.94rem;
+      color: var(--text-muted);
+      line-height: 1.75;
+    }
+
+    /* ========== CONSULTATION BENTO BREAKDOWN ========== */
+    .consultation-sec {
+      background: var(--bg-subtle);
+      padding: clamp(70px, 10vh, 120px) clamp(20px, 4vw, 64px);
+      border-top: 1px solid var(--border-subtle);
+      border-bottom: 1px solid var(--border-subtle);
+    }
+    .consult-container {
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .consult-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 28px;
+      align-items: center;
+    }
+    .consult-checklist-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 20px;
+      padding: clamp(32px, 5vw, 48px);
+    }
+    .consult-checklist-card h3 {
+      font-family: var(--font-display);
+      font-size: 1.8rem;
+      font-weight: 500;
+      margin-bottom: 24px;
+      color: var(--text-main);
+    }
+    .check-items {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    .check-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .check-bullet {
+      width: 22px;
+      height: 22px;
+      border-radius: 6px;
+      background: #E8F5EB;
+      color: #21432E;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+    .check-bullet svg {
+      width: 13px;
+      height: 13px;
+    }
+    .check-desc strong {
+      display: block;
+      font-size: 0.92rem;
+      color: var(--text-main);
+      margin-bottom: 2px;
+    }
+    .check-desc span {
+      font-size: 0.84rem;
+      color: var(--text-muted);
+      line-height: 1.5;
+    }
+
+    .consult-photo-card {
+      border-radius: 20px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+      box-shadow: 0 16px 40px rgba(18, 33, 24, 0.08);
+    }
+    .consult-photo-card img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* ========== TESTIMONIALS WITH REAL METRICS ========== */
+    .testimonials-sec {
+      padding: clamp(70px, 10vh, 120px) clamp(20px, 4vw, 64px);
+      max-width: 1240px;
+      margin: 0 auto;
+    }
+    .testi-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .testi-card {
+      background: #FFFFFF;
+      border: 1px solid var(--border-subtle);
+      border-radius: 18px;
+      padding: 32px 28px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 4px 20px rgba(18, 33, 24, 0.03);
+    }
+    .testi-pill {
+      font-size: 0.72rem;
+      font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: var(--brand-primary);
+      background: var(--bg-subtle);
+      padding: 4px 10px;
+      border-radius: 6px;
+      width: fit-content;
+      margin-bottom: 18px;
+    }
+    .testi-quote {
+      font-size: 0.94rem;
+      color: var(--text-main);
+      line-height: 1.7;
+      margin-bottom: 24px;
+      font-style: normal;
+      flex-grow: 1;
+    }
+    .testi-author {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      border-top: 1px solid var(--border-subtle);
+      padding-top: 18px;
+    }
+    .author-avatar {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .author-name {
+      font-size: 0.88rem;
+      font-weight: 600;
+      color: var(--text-main);
+    }
+    .author-context {
+      font-size: 0.76rem;
+      color: var(--text-light);
+    }
+
+    /* ========== CTA FINAL ========== */
+    .cta-banner-sec {
+      background: var(--brand-primary);
+      color: #FFFFFF;
+      padding: clamp(80px, 12vh, 140px) clamp(20px, 4vw, 64px);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-banner-inner {
+      max-width: 780px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-banner-inner .sec-tag {
+      color: var(--brand-lime);
+    }
+    .cta-banner-inner h2 {
+      font-family: var(--font-display);
+      font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+      font-weight: 400;
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+      color: #FFFFFF;
+      text-wrap: balance;
+    }
+    .cta-banner-inner p {
+      font-size: 1.05rem;
+      color: #D3E0D8;
+      line-height: 1.75;
+      margin-bottom: 36px;
+    }
+    .cta-large-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--brand-lime);
+      color: var(--brand-lime-text);
+      padding: 18px 40px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 700;
+      transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+    }
+    .cta-large-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 36px rgba(206, 240, 74, 0.4);
+    }
+    .cta-large-btn:active {
+      transform: scale(0.97);
+    }
+    .cta-large-btn svg {
+      width: 22px;
+      height: 22px;
+    }
+    .cta-guarantee-note {
+      font-size: 0.8rem;
+      color: #B5C9BC;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+    }
+
+    /* ========== FOOTER ========== */
+    .site-footer {
+      background: #111A14;
+      color: #92A398;
+      border-top: 1px solid #203126;
+      padding: 36px clamp(20px, 4vw, 64px);
+      font-size: 0.82rem;
+    }
+    .footer-inner {
+      max-width: 1240px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+    .footer-name {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: #FFFFFF;
+      font-weight: 500;
+    }
+
+    /* ========== WHATSAPP FLOAT (PULSE TACTILE) ========== */
+    .wpp-float-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      z-index: 99;
+      width: 58px;
+      height: 58px;
+      border-radius: 50%;
+      background: #25D366;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #FFFFFF;
+      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      transition: transform 0.2s var(--ease-out), box-shadow 0.2s var(--ease-out);
+      animation: float-pulse 2.8s infinite;
+    }
+    .wpp-float-btn:hover {
+      transform: scale(1.08);
+      box-shadow: 0 10px 28px rgba(37, 211, 102, 0.55);
+      animation: none;
+    }
+    .wpp-float-btn:active {
+      transform: scale(0.95);
+    }
+    .wpp-float-btn svg {
+      width: 28px;
+      height: 28px;
+    }
+    @keyframes float-pulse {
+      0%, 100% { box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4); }
+      50% { box-shadow: 0 6px 28px rgba(37, 211, 102, 0.65), 0 0 0 10px rgba(37, 211, 102, 0.08); }
+    }
+
+    /* ========== RESPONSIVE ========== */
+    @media (max-width: 1040px) {
+      .hero-master {
+        padding-top: 100px;
+        padding-bottom: 50px;
+      }
+      .hero-master-grid {
+        grid-template-columns: 1fr;
+        gap: 40px;
+      }
+      .hero-art-stage {
+        order: 1;
+        padding: 10px 0 20px;
+      }
+      .pillars-container {
+        grid-template-columns: 1fr 1fr;
+      }
+      .strip-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+      }
+      .selector-grid {
+        grid-template-columns: 1fr;
+      }
+      .phases-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      .consult-grid {
+        grid-template-columns: 1fr;
+      }
+      .testi-grid {
+        grid-template-columns: 1fr;
+      }
+      .compare-board {
+        grid-template-columns: 1fr;
+      }
+      .about-dr-grid {
+        grid-template-columns: 1fr;
+      }
+      .gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        height: auto;
+      }
+      .gallery-big {
+        grid-row: auto;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .site-header {
+        padding: 10px 16px;
+        height: 58px;
+      }
+      .header-nav { display: none; }
+      .header-brand .brand-title { font-size: 0.95rem; }
+      .header-brand .brand-sub { font-size: 0.6rem; }
+      .header-cta {
+        padding: 8px 14px;
+        font-size: 0.78rem;
+        border-radius: 8px;
+      }
+
+      .hero-master {
+        padding-top: 80px;
+        padding-bottom: 36px;
+      }
+      .hero-eyebrow {
+        margin-bottom: 14px;
+      }
+      .hero-master-heading {
+        font-size: clamp(2rem, 7.5vw, 2.7rem);
+        line-height: 1.2;
+        margin-bottom: 16px;
+        text-wrap: balance;
+      }
+      .hero-master-lead {
+        font-size: 0.95rem;
+        line-height: 1.7;
+        margin-bottom: 24px;
+      }
+      .hero-cta-cluster {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 12px;
+      }
+      .btn-hero-primary, .btn-hero-minimal {
+        width: 100%;
+        justify-content: center;
+        min-height: 52px;
+        font-size: 0.95rem;
+        padding: 14px 20px;
+      }
+      .hero-proof-strip {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 14px 12px;
+        margin-top: 24px;
+        padding-top: 20px;
+        border-top: 1px solid var(--border-subtle);
+      }
+      .proof-sep { display: none; }
+
+      .portrait-composition {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+      .portrait-frame {
+        height: 360px;
+        max-width: 310px;
+        margin: 0 auto;
+        border-radius: 20px;
+      }
+      .float-card-top, .float-card-bottom {
+        position: static;
+        margin: 10px auto 0;
+        width: 100%;
+        max-width: 310px;
+        animation: none;
+      }
+
+      .pillars-strip { padding: 24px 16px; }
+      .pillars-container { grid-template-columns: 1fr; gap: 18px; }
+
+      .value-strip { padding: 24px 16px; }
+      .strip-grid { grid-template-columns: repeat(2, 1fr); gap: 16px 12px; }
+
+      .selector-sec { padding: 48px 16px; }
+      .selector-card { padding: 20px 16px; border-radius: 16px; }
+      .focus-btn { min-height: 48px; padding: 12px 14px; font-size: 0.82rem; }
+
+      .about-dr-sec { padding: 48px 16px; }
+      .about-dr-photo { aspect-ratio: 4/5; max-height: 360px; }
+      .about-dr-text h2 { font-size: clamp(1.6rem, 5.5vw, 2.2rem); }
+
+      .manifesto-sec { padding: 40px 16px; }
+
+      .clinic-gallery-sec { padding: 48px 16px; }
+      .gallery-grid a { height: 220px; }
+
+      .protocol-sec { padding: 48px 16px; }
+      .sec-header { margin-bottom: 28px; }
+      .sec-title { font-size: clamp(1.8rem, 6.5vw, 2.4rem); }
+      .phases-grid { grid-template-columns: 1fr; gap: 16px; }
+      .phase-card { min-height: auto; padding: 24px 20px; }
+      .phase-number { font-size: 2.2rem; margin-bottom: 12px; }
+
+      .compare-container-sec { padding: 48px 16px; }
+      .compare-board { grid-template-columns: 1fr; gap: 20px; }
+      .board-side { padding: 24px 20px; border-radius: 16px; }
+
+      .specialties-sec { padding: 48px 16px; }
+      .accordion-header { padding: 18px 20px; }
+      .accordion-inner { padding: 0 20px 20px 20px; font-size: 0.9rem; }
+
+      .consultation-sec { padding: 48px 16px; }
+      .consult-grid { grid-template-columns: 1fr; gap: 16px; }
+
+      .testi-sec { padding: 48px 16px; }
+      .testi-grid { grid-template-columns: 1fr; gap: 16px; }
+
+      .cta-banner-sec { padding: 60px 16px; }
+      .cta-banner-inner h2 { font-size: clamp(2rem, 7.5vw, 2.6rem); }
+      .cta-large-btn {
+        width: 100%;
+        max-width: 340px;
+        justify-content: center;
+        min-height: 52px;
+        padding: 14px 20px;
+        font-size: 0.95rem;
+      }
+
+      .site-footer { padding: 28px 16px; text-align: center; }
+      .footer-inner { flex-direction: column; justify-content: center; gap: 12px; }
+
+      .wpp-float-btn {
+        bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+        right: 18px;
+        width: 52px;
+        height: 52px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .strip-grid { grid-template-columns: 1fr; gap: 16px; }
+      .header-cta span { font-size: 0.74rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      .wpp-float-btn { animation: none; }
+      *, *::before, *::after { transition-duration: 0.01ms !important; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- SITE HEADER -->
+<header class="site-header" id="siteHeader">
+  <div class="header-brand">
+    <div class="brand-mark">M</div>
+    <div>
+      <div class="brand-title">Dra. Mariana Costa</div>
+      <div class="brand-sub">Nutrição Funcional CRN-3 48.912</div>
+    </div>
+  </div>
+
+  <ul class="header-nav">
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#metodo">O Método</a></li>
+    <li><a href="#comparativo">Diferenciais</a></li>
+    <li><a href="#focos">Áreas de Atuação</a></li>
+    <li><a href="#consulta">A Consulta</a></li>
+  </ul>
+
+  <a href="https://wa.me/5511962236635?text=Olá%20Dra.%20Mariana%2C%20gostaria%20de%20agendar%20uma%20avaliação%20nutricional." target="_blank" class="header-cta">
+    <span>Agendar Consulta</span>
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </a>
+</header>
+
+<main>
+  <!-- HERO — MASTERPIECE ARCHITECTURAL EDITORIAL -->
+  <section class="hero-master">
+    <div class="hero-master-grid">
+      <!-- Left: Precision Authority & Scientific Narrative -->
+      <div class="hero-master-content reveal">
+        <div class="hero-eyebrow">
+          <span class="eyebrow-pulse"></span>
+          <span class="eyebrow-text">Consultório nos Jardins · SP &amp; Telemedicina</span>
+        </div>
+
+        <h1 class="hero-master-heading">
+          Nutrição de precisão para a sua <em>arquitetura metabólica.</em>
+        </h1>
+
+        <p class="hero-master-lead">
+          Bioquímica aplicada, modulação do eixo intestino-cérebro e recomposição corporal sustentável. Um acompanhamento clínico individualizado para quem recusa dietas genéricas de gaveta e busca vitalidade permanente.
+        </p>
+
+        <div class="hero-cta-cluster">
+          <a href="https://wa.me/5511962236635?text=Ol%C3%A1%20Dra.%20Mariana%2C%20gostaria%20de%20agendar%20uma%20avalia%C3%A7%C3%A3o%20nutricional." target="_blank" class="btn-hero-primary">
+            <span>Agendar Avaliação Clínica</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/></svg>
+          </a>
+          <a href="#metodo" class="btn-hero-minimal">
+            <span>Conhecer o Método</span>
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="6 9 12 15 18 9"/></svg>
+          </a>
+        </div>
+
+        <div class="hero-proof-strip">
+          <div class="proof-stat-item">
+            <span class="stat-val">1.200+</span>
+            <span class="stat-desc">Planos Entregues</span>
+          </div>
+          <div class="proof-sep"></div>
+          <div class="proof-stat-item">
+            <span class="stat-val">80 min</span>
+            <span class="stat-desc">Consulta Dedicada</span>
+          </div>
+          <div class="proof-sep"></div>
+          <div class="proof-stat-item">
+            <span class="stat-val">HC-FMUSP</span>
+            <span class="stat-desc">Especialização Clínica</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right: Art-Directed Architectural Stage (Breathing, High-End) -->
+      <div class="hero-art-stage reveal reveal-delay-1">
+        <div class="portrait-composition">
+          <!-- Main Photographic Centerpiece (Breathing, Framed) -->
+          <div class="portrait-frame">
+            <img src="https://images.unsplash.com/photo-1559839734-2b71ea197ec2?w=1000&h=1250&fit=crop&crop=faces" alt="Dra. Mariana Costa Nutricionista Clínica Funcional" loading="eager">
+            
+            <!-- Lower Frost Baseline -->
+            <div class="portrait-baseline-bar">
+              <div class="portrait-doctor-info">
+                <h4>Dra. Mariana Costa</h4>
+                <span>Nutrição Clínica &amp; Metabolismo · CRN-3 48.912</span>
+              </div>
+              <div class="portrait-status-chip">Jardins · SP</div>
+            </div>
+          </div>
+
+          <!-- Floating Precision Card 01 (Top Right) -->
+          <div class="float-card-top">
+            <div class="float-card-icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+            </div>
+            <div class="float-card-meta">
+              <span class="float-card-tag">EIXO METABÓLICO</span>
+              <span class="float-card-title">Glicemia Estável &amp; Saciedade</span>
+            </div>
+          </div>
+
+          <!-- Floating Precision Card 02 (Bottom Left) -->
+          <div class="float-card-bottom">
+            <div class="float-bio-header">
+              <span class="bio-header-badge">
+                <span class="bio-pulse-mini"></span>
+                Bioimpedância Segmentar
+              </span>
+              <span class="bio-device-tag">InBody 770</span>
+            </div>
+            <div class="float-bio-metrics">
+              <div class="bio-stat-unit">
+                <strong>+2.2 kg</strong>
+                <span>Massa Muscular</span>
+              </div>
+              <div class="bio-stat-divider"></div>
+              <div class="bio-stat-unit">
+                <strong>-5.4%</strong>
+                <span>Gordura Visceral</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PILLARS STRIP (Luminous, Sophisticated Transition) -->
+  <section class="pillars-strip">
+    <div class="pillars-container">
+      <div class="pillar-card reveal">
+        <span class="pillar-num">01</span>
+        <div class="pillar-text">
+          <h5>Bioquímica de Precisão</h5>
+          <p>Avaliação aprofundada de marcadores inflamatórios, hepáticos e hormonais.</p>
+        </div>
+      </div>
+
+      <div class="pillar-card reveal reveal-delay-1">
+        <span class="pillar-num">02</span>
+        <div class="pillar-text">
+          <h5>Modulação do Eixo Intestino</h5>
+          <p>Protocolos de integridade da mucosa com fitoterapia e fibras bioativas.</p>
+        </div>
+      </div>
+
+      <div class="pillar-card reveal reveal-delay-2">
+        <span class="pillar-num">03</span>
+        <div class="pillar-text">
+          <h5>Composição Corporal InBody</h5>
+          <p>Redução de percentual de gordura com preservação estrita do tônus muscular.</p>
+        </div>
+      </div>
+
+      <div class="pillar-card reveal reveal-delay-3">
+        <span class="pillar-num">04</span>
+        <div class="pillar-text">
+          <h5>Acompanhamento no WhatsApp</h5>
+          <p>Orientação direta para escolhas em restaurantes, viagens e jantares sociais.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INTERACTIVE SELECTOR -->
+  <section class="selector-sec">
+    <div class="selector-grid">
+      <div class="selector-text reveal">
+        <span class="sec-tag">Simulador Clínico</span>
+        <h2>Cada objetivo exige uma conduta diferente. Qual é o seu?</h2>
+        <p>Selecione o seu foco principal ao lado e veja como a abordagem clínica se adapta à sua necessidade específica. Não existe tratamento genérico quando se trabalha com precisão.</p>
+      </div>
+      <div class="selector-card reveal reveal-delay-1">
+        <h4>Qual o seu objetivo principal?</h4>
+        <p class="selector-prompt">Selecione para ver a conduta clínica:</p>
+        <div class="focus-buttons">
+          <button type="button" class="focus-btn active" onclick="setFocusGoal('emagrecimento', this)">
+            <span>Emagrecimento Saudável</span>
+            <span class="focus-arrow">→</span>
+          </button>
+          <button type="button" class="focus-btn" onclick="setFocusGoal('energia', this)">
+            <span>Disposição &amp; Foco Mental</span>
+            <span class="focus-arrow">→</span>
+          </button>
+          <button type="button" class="focus-btn" onclick="setFocusGoal('intestino', this)">
+            <span>Saúde Intestinal &amp; Digestão</span>
+            <span class="focus-arrow">→</span>
+          </button>
+          <button type="button" class="focus-btn" onclick="setFocusGoal('hormonal', this)">
+            <span>Regulação Metabólica / SOP</span>
+            <span class="focus-arrow">→</span>
+          </button>
+        </div>
+
+        <div class="focus-result-box" id="focusResultBox">
+          <div class="focus-result-title" id="focusResultTitle">Conduta: Emagrecimento</div>
+          <div class="focus-result-text" id="focusResultText">
+            Déficit calórico estratégico com preservação muscular, ajuste de saciedade e sem corte de carboidratos essenciais.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SOBRE A DRA. MARIANA -->
+  <section class="about-dr-sec" id="sobre">
+    <div class="about-dr-grid">
+      <div class="about-dr-photo reveal">
+        <img src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?w=800&h=1000&fit=crop&crop=faces" alt="Dra. Mariana Costa no consultório" loading="lazy">
+      </div>
+      <div class="about-dr-text reveal reveal-delay-1">
+        <h2>Nutricionista pelo Instituto de Ciências Biomédicas da USP com residência clínica no HC-FMUSP</h2>
+        <p>
+          Minha prática parte do princípio de que a alimentação precisa funcionar dentro da sua vida real. Reuniões que acabam tarde, viagens constantes, jantares sociais e preferências pessoais não são obstáculos para um plano alimentar bem construído.
+        </p>
+        <p>
+          Utilizo análise bioquímica de precisão, bioimpedância tetrapolar e avaliação funcional do trato gastrointestinal para desenhar estratégias que você vai conseguir seguir com tranquilidade por meses e anos, não apenas por duas semanas de motivação.
+        </p>
+        <div class="about-tags">
+          <span class="about-tag">Composição Corporal</span>
+          <span class="about-tag">Saúde Intestinal</span>
+          <span class="about-tag">Metabolismo</span>
+          <span class="about-tag">SOP</span>
+          <span class="about-tag">Emagrecimento</span>
+          <span class="about-tag">Performance</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MANIFESTO -->
+  <div class="manifesto-sec reveal">
+    <blockquote>
+      "Alimentar-se bem não é sobre controle. É sobre entender o que o seu corpo precisa para funcionar na sua melhor versão, todos os dias."
+    </blockquote>
+    <cite>Dra. Mariana Costa</cite>
+  </div>
+
+  <!-- PROTOCOLO EM 4 FASES -->
+  <section class="protocol-sec" id="metodo">
+    <div class="sec-header reveal">
+      <span class="sec-tag">Metodologia Clínica</span>
+      <h2 class="sec-title">O protocolo estruturado para você nunca mais recomeçar do zero.</h2>
+      <p class="sec-desc">
+        A maioria das pessoas falha porque tenta seguir dietas que não cabem na sua rotina de trabalho.
+        Nosso protocolo divide o acompanhamento em 4 etapas bem definidas.
+      </p>
+    </div>
+
+    <div class="phases-grid">
+      <div class="phase-card reveal">
+        <div>
+          <div class="phase-number">01</div>
+          <div class="phase-body">
+            <h4>Mapeamento Metabólico</h4>
+            <p>Leitura minuciosa de exames laboratoriais, bioimpedância tetrapolar e investigação da rotina de sono e estresse.</p>
+          </div>
+        </div>
+        <div class="phase-badge">Diagnóstico Profundo</div>
+      </div>
+
+      <div class="phase-card reveal reveal-delay-1">
+        <div>
+          <div class="phase-number">02</div>
+          <div class="phase-body">
+            <h4>Engenharia do Cardápio</h4>
+            <p>Construção de uma rotina alimentar viável, adaptada aos restaurantes que você frequenta e aos alimentos que você gosta.</p>
+          </div>
+        </div>
+        <div class="phase-badge">Planejamento Prático</div>
+      </div>
+
+      <div class="phase-card reveal reveal-delay-2">
+        <div>
+          <div class="phase-number">03</div>
+          <div class="phase-body">
+            <h4>Acompanhamento Ativo</h4>
+            <p>Canal direto no WhatsApp para tirar dúvidas de compras de mercado, adaptações em viagens e ocasiões sociais.</p>
+          </div>
+        </div>
+        <div class="phase-badge">Suporte Contínuo</div>
+      </div>
+
+      <div class="phase-card reveal reveal-delay-3">
+        <div>
+          <div class="phase-number">04</div>
+          <div class="phase-body">
+            <h4>Autonomia e Consolidação</h4>
+            <p>Reavaliação periódica de biomarcadores, ganho de massa magra e liberdade alimentar consolidada para o longo prazo.</p>
+          </div>
+        </div>
+        <div class="phase-badge">Resultado Permanente</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMPARATIVO DIETA vs METODO -->
+  <section class="compare-container-sec" id="comparativo">
+    <div class="compare-wrap">
+      <div class="compare-top reveal">
+        <span class="sec-tag">Clareza de Escolha</span>
+        <h2 class="sec-title">A diferença entre fazer dieta e ter uma estratégia metabólica.</h2>
+        <p class="sec-desc">Veja o que muda quando você sai do ciclo de restrição e adota uma abordagem científica.</p>
+      </div>
+
+      <div class="compare-board">
+        <!-- LADO CONVENCIONAL -->
+        <div class="board-side board-old reveal">
+          <span class="side-pill">Abordagem Restritiva Comum</span>
+          <h3 class="side-title">Dietas padronizadas de internet</h3>
+          <ul class="side-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <span>Cardápios rígidos que geram ansiedade e sentimento de culpa ao comer.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <span>Queda drástica de energia no meio da tarde e dificuldade de concentração.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <span>Perda de massa magra que desacelera o metabolismo e gera efeito sanfona.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+              <span>Nenhum suporte entre consultas, deixando você desamparado nas refeições sociais.</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- LADO METODO DRA MARIANA -->
+        <div class="board-side board-new reveal reveal-delay-1">
+          <span class="side-pill">Metodologia Dra. Mariana Costa</span>
+          <h3 class="side-title">Nutrição clínica individualizada</h3>
+          <ul class="side-list">
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Alimentos da sua rotina combinados estrategicamente para manter a glicemia estável.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Disposição física e mental constante ao longo de todo o expediente de trabalho.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Redução de gordura corporal com preservação da tonicidade muscular.</span>
+            </li>
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+              <span>Acompanhamento no WhatsApp para orientar escolhas em viagens, eventos e jantares.</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPECIALIDADES (ACORDEAO SEGURO) -->
+  <section class="specialties-sec" id="focos">
+    <div class="sec-header reveal">
+      <span class="sec-tag">Condutas Específicas</span>
+      <h2 class="sec-title">Áreas de aprofundamento clínico.</h2>
+      <p class="sec-desc">Clique nos blocos para entender as diretrizes de cada protocolo.</p>
+    </div>
+
+    <div class="accordion-group reveal">
+      <!-- ITEM 1 -->
+      <div class="accordion-item active">
+        <button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+          <h3><span class="acc-number">01</span> Emagrecimento Consciente & Composição Corporal</h3>
+          <div class="acc-toggle-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            Estratégia calculada para redução sustentada do percentual de gordura. Focamos no aumento do aporte proteico adequado, na modulação do apetite através de fibras bioativas e na manutenção do gasto calórico basal, evitando o efeito rebote pós-dieta.
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="accordion-item">
+        <button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+          <h3><span class="acc-number">02</span> Saúde Metabólica: Glicemia, Fígado e Lipídios</h3>
+          <div class="acc-toggle-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            Protocolos alimentares voltados para reversão de esteatose hepática, resistência à insulina, triglicerídeos elevados e pré-diabetes. Cada intervenção é acompanhada de repetição de exames laboratoriais a cada 90 dias para comprovação clínica dos resultados.
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="accordion-item">
+        <button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+          <h3><span class="acc-number">03</span> Modulação Digestiva & Eixo Intestino-Cérebro</h3>
+          <div class="acc-toggle-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            Alívio permanente de distensão abdominal, constipação crônica, gases e refluxo. Tratamos a integridade da barreira intestinal através de fitoterapia, alimentos funcionais e remissão de sensibilidades alimentares não diagnosticadas.
+          </div>
+        </div>
+      </div>
+
+      <!-- ITEM 4 -->
+      <div class="accordion-item">
+        <button type="button" class="accordion-header" onclick="toggleAccordion(this)">
+          <h3><span class="acc-number">04</span> Nutrição Feminina: SOP, Tireoide e Climatério</h3>
+          <div class="acc-toggle-icon">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+          </div>
+        </button>
+        <div class="accordion-content">
+          <div class="accordion-inner">
+            Condutas especializadas para síndromes hormonais femininas, diminuindo inflamação sistêmica, sintomas de tensão pré-menstrual, retenção hídrica e auxiliando na preservação da densidade mineral óssea e muscular.
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- O QUE ESTÁ INCLUSO NA CONSULTA -->
+  <section class="consultation-sec" id="consulta">
+    <div class="consult-container">
+      <div class="consult-grid">
+        <div class="consult-checklist-card reveal">
+          <span class="sec-tag">Experiência Completa</span>
+          <h3>O que acontece a partir da sua primeira consulta</h3>
+          <div class="check-items">
+            <div class="check-row">
+              <div class="check-bullet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="check-desc">
+                <strong>Consulta inicial de 80 minutos</strong>
+                <span>Entrevista clínica detalhada sobre sua rotina, preferências, aversões e histórico alimentar familiar.</span>
+              </div>
+            </div>
+
+            <div class="check-row">
+              <div class="check-bullet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="check-desc">
+                <strong>Exame de Bioimpedância Tetrapolar InBody</strong>
+                <span>Análise exata de percentual de gordura, massa muscular por segmento corporal e taxa metabólica basal.</span>
+              </div>
+            </div>
+
+            <div class="check-row">
+              <div class="check-bullet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="check-desc">
+                <strong>Plano Alimentar entregue em até 48 horas no App</strong>
+                <span>Cardápio dinâmico com guia visual de porções, lista de compras semanal e tabela de substituições fáceis.</span>
+              </div>
+            </div>
+
+            <div class="check-row">
+              <div class="check-bullet">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg>
+              </div>
+              <div class="check-desc">
+                <strong>Canal direto no WhatsApp da Dra. Mariana</strong>
+                <span>Apoio contínuo para você fotografar o prato em restaurantes e tirar dúvidas sobre marcas no supermercado.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="consult-photo-card reveal reveal-delay-1">
+          <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=800&h=1000&fit=crop" alt="Ambiente da Consulta Nutricional">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPOIMENTOS -->
+  <section class="testimonials-sec">
+    <div class="sec-header reveal">
+      <span class="sec-tag">Resultados Verificados</span>
+      <h2 class="sec-title">Histórias reais de quem transformou a saúde.</h2>
+      <p class="sec-desc">Relatos de pacientes que recuperaram a vitalidade e os exames laboratoriais.</p>
+    </div>
+
+    <div class="testi-grid">
+      <div class="testi-card reveal">
+        <span class="testi-pill">Emagrecimento & Glicemia</span>
+        <p class="testi-quote">
+          "Em 5 meses reduzi 8kg de gordura e minha insulina em jejum caiu de 18 para 6. O mais impressionante foi aprender a comer bem sem me isolar socialmente quando saio com amigos."
+        </p>
+        <div class="testi-author">
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=90&h=90&fit=crop&crop=faces" alt="">
+          <div>
+            <div class="author-name">Fernanda Meireles</div>
+            <div class="author-context">34 anos, Advogada, São Paulo</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-1">
+        <span class="testi-pill">Disposição & Foco</span>
+        <p class="testi-quote">
+          "Eu dependia de 5 xícaras de café para aguentar o expediente e chegava em casa sem energia para nada. Ajustamos os horários e a proporção dos carboidratos e a fadiga simplesmente sumiu."
+        </p>
+        <div class="testi-author">
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=90&h=90&fit=crop&crop=faces" alt="">
+          <div>
+            <div class="author-name">Guilherme Prado</div>
+            <div class="author-context">42 anos, Diretor de Tecnologia, Online</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testi-card reveal reveal-delay-2">
+        <span class="testi-pill">Digestão & Microbiota</span>
+        <p class="testi-quote">
+          "Sofria com distensão e desconforto abdominal diário há mais de três anos. A Dra. Mariana identificou as intolerâncias com precisão e hoje me sinto leve todos os dias."
+        </p>
+        <div class="testi-author">
+          <img class="author-avatar" src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=90&h=90&fit=crop&crop=faces" alt="">
+          <div>
+            <div class="author-name">Larissa Fontes</div>
+            <div class="author-context">29 anos, Arquiteta, São Paulo</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ESPAÇO CLÍNICO / GALERIA -->
+  <section class="clinic-gallery-sec">
+    <h2 class="reveal">O espaço onde cuidamos da sua saúde</h2>
+    <div class="gallery-grid reveal">
+      <a class="gallery-big" href="https://wa.me/5511962236635?text=Olá%20Dra.%20Mariana%2C%20gostaria%20de%20agendar%20uma%20avaliação%20nutricional." target="_blank">
+        <img src="https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=800&h=1000&fit=crop" alt="Ingredientes frescos e preparo da consulta nutricional" loading="lazy">
+      </a>
+      <a href="https://wa.me/5511962236635?text=Olá%20Dra.%20Mariana%2C%20gostaria%20de%20agendar%20uma%20avaliação%20nutricional." target="_blank">
+        <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=500&h=500&fit=crop" alt="Equipamento de bioimpedância no consultório" loading="lazy">
+      </a>
+      <a href="https://wa.me/5511962236635?text=Olá%20Dra.%20Mariana%2C%20gostaria%20de%20agendar%20uma%20avaliação%20nutricional." target="_blank">
+        <img src="https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=500&h=500&fit=crop" alt="Mesa com alimentos saudáveis e plano alimentar" loading="lazy">
+      </a>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-banner-sec">
+    <div class="cta-banner-inner reveal">
+      <span class="sec-tag">Dê O Primeiro Passo</span>
+      <h2>Sua saúde é o seu maior patrimônio. Vamos começar?</h2>
+      <p>
+        Atendimentos presenciais no consultório nos Jardins (São Paulo) e consultas online para todo o Brasil e exterior.
+        Horários dedicados para novos pacientes com agendamento direto.
+      </p>
+      <a href="https://wa.me/5511962236635?text=Olá%20Dra.%20Mariana%2C%20gostaria%20de%20agendar%20uma%20avaliação%20nutricional." target="_blank" class="cta-large-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+        <span>Falar no WhatsApp e Agendar</span>
+      </a>
+      <div class="cta-guarantee-note">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="11" x="3" y="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        <span>Atendimento exclusivo com privacidade e sigilo clínico</span>
+      </div>
+    </div>
+  </section>
+</main>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <div class="footer-name">Dra. Mariana Costa</div>
+      <p>Nutrição Clínica e Funcional | CRN-3 48.912</p>
+    </div>
+    <p>Alameda Santos, Jardins, São Paulo - SP | Atendimento em todo o Brasil</p>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/5511962236635?text=Olá%20Dra.%20Mariana%2C%20gostaria%20de%20agendar%20uma%20avaliação%20nutricional." target="_blank" class="wpp-float-btn" aria-label="WhatsApp">
+  <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+</a>
+
+<script>
+  // Reveal Observer
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Header Scroll Effect
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 30);
+  }, { passive: true });
+
+  // Interactive Focus Goal Selector
+  const goalData = {
+    emagrecimento: {
+      title: 'Conduta: Emagrecimento',
+      text: 'Déficit calórico estratégico com preservação muscular, ajuste de saciedade e sem corte de carboidratos essenciais.'
+    },
+    energia: {
+      title: 'Conduta: Disposição & Foco',
+      text: 'Crononutrição para sincronizar refeições com seus picos de cortisol e controle de curvas glicêmicas pós-almoço.'
+    },
+    intestino: {
+      title: 'Conduta: Saúde Intestinal',
+      text: 'Protocolo de modulação da microbiota com fibras prebióticas, alívio de distensão e recuperação da integridade da mucosa.'
+    },
+    hormonal: {
+      title: 'Conduta: Regulação Metabólica',
+      text: 'Estratégia anti-inflamatória voltada para sensibilidade à insulina, controle de esteatose e alívio de sintomas de SOP e TPM.'
+    }
+  };
+
+  function setFocusGoal(key, btn) {
+    document.querySelectorAll('.focus-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+
+    const titleEl = document.getElementById('focusResultTitle');
+    const textEl = document.getElementById('focusResultText');
+    const box = document.getElementById('focusResultBox');
+
+    box.style.opacity = '0.4';
+    setTimeout(() => {
+      titleEl.textContent = goalData[key].title;
+      textEl.textContent = goalData[key].text;
+      box.style.opacity = '1';
+    }, 120);
+  }
+
+  // Accordion Controller (Grid Rows 0fr -> 1fr Seguro)
+  function toggleAccordion(button) {
+    const item = button.closest('.accordion-item');
+    const isActive = item.classList.contains('active');
+
+    // Close others
+    document.querySelectorAll('.accordion-item').forEach(acc => {
+      acc.classList.remove('active');
+    });
+
+    if (!isActive) {
+      item.classList.add('active');
+    }
+  }
+</script>
+
+</body>
+</html>

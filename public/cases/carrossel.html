@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carrossel Instagram | Grupo G2F AI</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #0D1110;
+      color: #FFFFFF;
+      font-family: 'DM Sans', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 30px 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .preview-header-bar {
+      max-width: 420px;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+      font-size: 13px;
+      color: #8C9991;
+    }
+    .preview-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px 12px;
+      background: rgba(92, 124, 101, 0.15);
+      border: 1px solid rgba(92, 124, 101, 0.3);
+      border-radius: 20px;
+      color: #9EC4A9;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .preview-badge-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: #4ADE80;
+      box-shadow: 0 0 8px rgba(74, 222, 128, 0.6);
+    }
+
+    /* IG FRAME: EXACT 420px */
+    .ig-frame {
+      width: 420px;
+      max-width: 100%;
+      background: #141A17;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 25px 60px -10px rgba(0, 0, 0, 0.7);
+    }
+
+    /* IG HEADER */
+    .ig-header {
+      height: 54px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+      background: #18201C;
+    }
+    .ig-user {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }}
+    .ig-avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #5C7C65 0%, #2A392F 100%);
+      border: 1.5px solid #7FA389;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      color: #FFFFFF;
+    }
+    .ig-user-info {
+      display: flex;
+      flex-direction: column;
+    }
+    .ig-name {
+      font-size: 12.5px;
+      font-weight: 700;
+      color: #FFFFFF;
+      letter-spacing: 0.2px;
+    }
+    .ig-sub {
+      font-size: 10.5px;
+      color: #8A988F;
+    }
+    .ig-more-dots {
+      color: #7A8980;
+      cursor: pointer;
+    }
+
+    /* CAROUSEL VIEWPORT: 420 x 525 px (4:5 RATIO) */
+    .carousel-viewport {
+      width: 420px;
+      height: 525px;
+      overflow: hidden;
+      position: relative;
+      cursor: grab;
+      user-select: none;
+      touch-action: pan-y;
+      background: #1C231F;
+    }
+    .carousel-viewport:active {
+      cursor: grabbing;
+    }
+
+    .carousel-track {
+      display: flex;
+      width: calc(420px * 7);
+      height: 100%;
+      transition: transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
+    }
+
+    /* SLIDE BASE */
+    .slide {
+      width: 420px;
+      height: 525px;
+      flex-shrink: 0;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      padding: 0 34px 54px;
+    }
+
+    .slide-light {
+      background: #FAFAF7;
+      color: #1F2421;
+    }
+    .slide-dark {
+      background: #1C231F;
+      color: #FFFFFF;
+    }
+    .slide-gradient {
+      background: linear-gradient(165deg, #161D19 0%, #26352C 50%, #3B5244 100%);
+      color: #FFFFFF;
+    }
+
+    /* TYPOGRAPHY */
+    .font-serif {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-weight: 600;
+    }
+    .font-sans {
+      font-family: 'DM Sans', sans-serif;
+    }
+    .font-alt {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .slide-tag {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      margin-bottom: 14px;
+    }
+    .slide-light .slide-tag {
+      color: #5C7C65;
+    }
+    .slide-dark .slide-tag {
+      color: #7FA389;
+    }
+    .slide-gradient .slide-tag {
+      color: rgba(255, 255, 255, 0.75);
+    }
+
+    .slide-title {
+      font-size: 28px;
+      line-height: 1.15;
+      letter-spacing: -0.4px;
+      margin-bottom: 14px;
+    }
+    .slide-light .slide-title {
+      color: #1A1F1C;
+    }
+    .slide-dark .slide-title, .slide-gradient .slide-title {
+      color: #FFFFFF;
+    }
+
+    .slide-desc {
+      font-size: 13.5px;
+      line-height: 1.55;
+      font-weight: 400;
+      margin-bottom: 16px;
+    }
+    .slide-light .slide-desc {
+      color: #555A54;
+    }
+    .slide-dark .slide-desc {
+      color: #B5BFB7;
+    }
+
+    /* CONTROLS & NAV DOTS */
+    .ig-actions {
+      height: 48px;
+      padding: 0 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: #18201C;
+    }
+    .ig-action-icons {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: #B0BCB4;
+    }
+    .ig-dots {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 5px;
+    }
+    .ig-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.2);
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+    .ig-dot.active {
+      background: #5C7C65;
+      width: 14px;
+      border-radius: 4px;
+    }
+
+    .ig-caption {
+      padding: 10px 16px 16px;
+      font-size: 12px;
+      line-height: 1.5;
+      background: #18201C;
+      border-top: 1px solid rgba(255, 255, 255, 0.04);
+    }
+    .ig-caption strong {
+      color: #FFFFFF;
+      margin-right: 5px;
+    }
+    .ig-caption p {
+      color: #8F9E94;
+      display: inline;
+    }
+    .ig-time {
+      display: block;
+      margin-top: 6px;
+      font-size: 10px;
+      color: #5C6961;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    /* INTERACTION BUTTONS */
+    .nav-bar {
+      margin-top: 18px;
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+    .nav-btn {
+      background: #1F2A24;
+      border: 1px solid rgba(92, 124, 101, 0.4);
+      color: #E2ECE5;
+      padding: 8px 18px;
+      border-radius: 8px;
+      font-size: 12.5px;
+      font-weight: 600;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+    .nav-btn:hover {
+      background: #2E3F35;
+      border-color: #5C7C65;
+    }
+
+    /* REUSABLE SLIDE UI ELEMENTS */
+    .progress-bar-wrap {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 16px 28px 20px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .progress-track {
+      flex: 1;
+      height: 3px;
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .progress-fill {
+      height: 100%;
+      border-radius: 2px;
+    }
+    .progress-label {
+      font-size: 11px;
+      font-weight: 600;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .swipe-chevron {
+      position: absolute;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      width: 38px;
+      z-index: 9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="preview-header-bar">
+    <div class="preview-badge">
+      <span class="preview-badge-dot"></span>
+      Feed Instagram (4:5 • 1080x1350)
+    </div>
+    <span>Grupo G2F AI • Seleção de Cases</span>
+  </div>
+
+  <div class="ig-frame">
+    <!-- IG HEADER -->
+    <div class="ig-header">
+      <div class="ig-user">
+        <div class="ig-avatar">G2F</div>
+        <div class="ig-user-info">
+          <span class="ig-name">grupog2f.ai</span>
+          <span class="ig-sub">São Paulo • Presença Digital em Saúde</span>
+        </div>
+      </div>
+      <div class="ig-more-dots">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="1.5"/><circle cx="6" cy="12" r="1.5"/><circle cx="18" cy="12" r="1.5"/></svg>
+      </div>
+    </div>
+
+    <!-- CAROUSEL VIEWPORT (420 x 525 px) -->
+    <div class="carousel-viewport" id="carouselViewport">
+      <div class="carousel-track" id="carouselTrack">
+
+        <!-- ==================== SLIDE 1 ==================== -->
+        <div class="slide slide-light" id="slide1" style="justify-content:center;">
+          <div style="position:absolute;top:28px;left:34px;right:34px;display:flex;align-items:center;justify-content:space-between;">
+            <span style="font-size:11px;font-weight:700;letter-spacing:1px;color:#858A83;text-transform:uppercase;">Grupo G2F AI</span>
+            <span style="font-size:10px;padding:3px 9px;border-radius:12px;background:rgba(92,124,101,0.12);color:#5C7C65;font-weight:700;">SAÚDE 2026</span>
+          </div>
+
+          <span class="slide-tag">CONSULTÓRIOS PARTICULARES</span>
+          <h1 class="slide-title font-serif">
+            O paciente que pagaria R$ 400 na sua consulta foi embora em 4 segundos.
+          </h1>
+          <p class="slide-desc font-sans" style="font-size:14.5px;color:#4F554F;margin-bottom:20px;">
+            E a razão é aquele link improvisado na sua bio.
+          </p>
+
+          <div style="background:#FFFFFF;border:1px solid #E8E5DC;border-radius:12px;padding:12px 16px;box-shadow:0 6px 18px rgba(0,0,0,0.03);display:flex;align-items:center;justify-content:space-between;">
+            <div style="display:flex;align-items:center;gap:10px;">
+              <span style="font-size:11px;color:#8C857B;text-decoration:line-through;">linktr.ee/doutora</span>
+              <span style="font-size:11px;color:#2E8B57;font-weight:700;display:flex;align-items:center;gap:4px;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="20 6 9 17 4 12"/></svg>
+                seunome.com.br
+              </span>
+            </div>
+            <span style="font-size:10px;font-weight:700;color:#5C7C65;text-transform:uppercase;letter-spacing:0.5px;">Arraste -></span>
+          </div>
+
+          <div class="swipe-chevron" style="background:linear-gradient(to right,transparent,rgba(0,0,0,0.04));">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.28)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-track" style="background:rgba(0,0,0,0.08);">
+              <div class="progress-fill" style="width:14.3%;background:#5C7C65;"></div>
+            </div>
+            <span class="progress-label" style="color:rgba(0,0,0,0.35);">1/7</span>
+          </div>
+        </div>
+
+        <!-- ==================== SLIDE 2 ==================== -->
+        <div class="slide slide-dark" id="slide2">
+          <span class="slide-tag">COMPORTAMENTO DO PACIENTE</span>
+          <h2 class="slide-title font-serif">
+            Quem busca atendimento particular busca segurança, não atalhos.
+          </h2>
+          <p class="slide-desc font-sans">
+            Quando o paciente clica na sua bio e encontra uma lista cinza cheia de botões ou um link cru de WhatsApp:
+          </p>
+
+          <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:24px;">
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#252F2A;border-radius:10px;border:1px solid rgba(255,255,255,0.05);">
+              <span style="color:#E06D53;font-size:14px;font-weight:700;">✕</span>
+              <span style="font-size:12.5px;color:#E1E8E3;line-height:1.4;">O cérebro dele registra inconscientemente: <strong>amadorismo</strong>.</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#252F2A;border-radius:10px;border:1px solid rgba(255,255,255,0.05);">
+              <span style="color:#E06D53;font-size:14px;font-weight:700;">✕</span>
+              <span style="font-size:12.5px;color:#E1E8E3;line-height:1.4;">Ele passa a questionar o preço antes de conhecer o seu método.</span>
+            </div>
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:10px 14px;background:#252F2A;border-radius:10px;border:1px solid rgba(255,255,255,0.05);">
+              <span style="color:#E06D53;font-size:14px;font-weight:700;">✕</span>
+              <span style="font-size:12.5px;color:#E1E8E3;line-height:1.4;">Na dúvida, ele fecha a aba e agenda com quem parece mais estabelecido.</span>
+            </div>
+          </div>
+
+          <div class="swipe-chevron" style="background:linear-gradient(to right,transparent,rgba(255,255,255,0.06));">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.4)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-track" style="background:rgba(255,255,255,0.12);">
+              <div class="progress-fill" style="width:28.6%;background:#FFFFFF;"></div>
+            </div>
+            <span class="progress-label" style="color:rgba(255,255,255,0.45);">2/7</span>
+          </div>
+        </div>
+
+        <!-- ==================== SLIDE 3 ==================== -->
+        <div class="slide slide-light" id="slide3">
+          <span class="slide-tag">PERCEPÇÃO DE VALOR</span>
+          <h2 class="slide-title font-serif" style="font-size:26px;">
+            Seu consultório físico é impecável. Por que sua recepção digital parece improvisada?
+          </h2>
+
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:20px;">
+            <div style="padding:14px 16px;background:#FAF2F0;border:1px solid #EBD5D1;border-radius:12px;">
+              <span style="font-size:10px;font-weight:700;color:#9E4636;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:4px;">Linktree / WhatsApp Cru</span>
+              <p style="font-size:12.5px;color:#634844;line-height:1.45;">Passa sensação de informalidade, atrai curiosos que só pechincham preço e desvaloriza sua formação.</p>
+            </div>
+
+            <div style="padding:14px 16px;background:#F0F5F2;border:1px solid #D1E0D6;border-radius:12px;">
+              <span style="font-size:10px;font-weight:700;color:#5C7C65;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:4px;">Endereço Digital Exclusivo</span>
+              <p style="font-size:12.5px;color:#354B3D;line-height:1.45;">Transmite autoridade clínica imediata, explica seu método com elegância e justifica o valor da sua consulta.</p>
+            </div>
+          </div>
+
+          <div class="swipe-chevron" style="background:linear-gradient(to right,transparent,rgba(0,0,0,0.04));">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.28)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-track" style="background:rgba(0,0,0,0.08);">
+              <div class="progress-fill" style="width:42.9%;background:#5C7C65;"></div>
+            </div>
+            <span class="progress-label" style="color:rgba(0,0,0,0.35);">3/7</span>
+          </div>
+        </div>
+
+        <!-- ==================== SLIDE 4 ==================== -->
+        <div class="slide slide-dark" id="slide4">
+          <span class="slide-tag">ARQUITETURA DE VALOR</span>
+          <h2 class="slide-title font-serif">
+            O que uma Landing Page editorial faz pelo seu consultório:
+          </h2>
+
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:22px;">
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:#252F2A;border-radius:12px;border:1px solid rgba(255,255,255,0.06);">
+              <span class="font-serif" style="font-size:22px;color:#7FA389;line-height:1;">01</span>
+              <div>
+                <strong style="font-size:13.5px;color:#FFFFFF;display:block;margin-bottom:2px;">Filtra curiosos</strong>
+                <span style="font-size:12px;color:#A9B7AE;line-height:1.4;">O paciente chega no seu WhatsApp pré-educado e pronto para agendar.</span>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:#252F2A;border-radius:12px;border:1px solid rgba(255,255,255,0.06);">
+              <span class="font-serif" style="font-size:22px;color:#7FA389;line-height:1;">02</span>
+              <div>
+                <strong style="font-size:13.5px;color:#FFFFFF;display:block;margin-bottom:2px;">Eleva seu posicionamento</strong>
+                <span style="font-size:12px;color:#A9B7AE;line-height:1.4;">Apresenta suas credenciais e especialidades com rigor ético (CFP/CRM/CFN).</span>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:flex-start;gap:12px;padding:12px 14px;background:#252F2A;border-radius:12px;border:1px solid rgba(255,255,255,0.06);">
+              <span class="font-serif" style="font-size:22px;color:#7FA389;line-height:1;">03</span>
+              <div>
+                <strong style="font-size:13.5px;color:#FFFFFF;display:block;margin-bottom:2px;">Recepção 24 horas</strong>
+                <span style="font-size:12px;color:#A9B7AE;line-height:1.4;">Sua clínica digital funcionando com excelência todos os dias da semana.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="swipe-chevron" style="background:linear-gradient(to right,transparent,rgba(255,255,255,0.06));">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.4)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-track" style="background:rgba(255,255,255,0.12);">
+              <div class="progress-fill" style="width:57.1%;background:#FFFFFF;"></div>
+            </div>
+            <span class="progress-label" style="color:rgba(255,255,255,0.45);">4/7</span>
+          </div>
+        </div>
+
+        <!-- ==================== SLIDE 5 ==================== -->
+        <div class="slide slide-light" id="slide5">
+          <span class="slide-tag">MÉTODO 48 HORAS</span>
+          <h2 class="slide-title font-serif" style="font-size:27px;">
+            Você não precisa entender de código nem gastar horas escrevendo.
+          </h2>
+
+          <div style="display:flex;flex-direction:column;gap:12px;margin-bottom:22px;">
+            <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#FFFFFF;border:1px solid #E8E5DC;border-radius:12px;">
+              <span style="font-size:13px;font-weight:700;color:#5C7C65;background:rgba(92,124,101,0.12);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;">1</span>
+              <div>
+                <strong style="font-size:13px;color:#1F2421;display:block;">Envio do Material</strong>
+                <span style="font-size:11.5px;color:#6A7069;">Você só nos envia fotos e seu registro profissional.</span>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#FFFFFF;border:1px solid #E8E5DC;border-radius:12px;">
+              <span style="font-size:13px;font-weight:700;color:#5C7C65;background:rgba(92,124,101,0.12);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;">2</span>
+              <div>
+                <strong style="font-size:13px;color:#1F2421;display:block;">Construção Completa</strong>
+                <span style="font-size:11.5px;color:#6A7069;">Criamos os textos éticos, layout e conexão com WhatsApp.</span>
+              </div>
+            </div>
+
+            <div style="display:flex;align-items:center;gap:14px;padding:12px 16px;background:#FFFFFF;border:1px solid #E8E5DC;border-radius:12px;">
+              <span style="font-size:13px;font-weight:700;color:#5C7C65;background:rgba(92,124,101,0.12);width:26px;height:26px;border-radius:50%;display:flex;align-items:center;justify-content:center;">3</span>
+              <div>
+                <strong style="font-size:13px;color:#1F2421;display:block;">Lançamento em até 48h</strong>
+                <span style="font-size:11.5px;color:#6A7069;">Sua página pronta para receber pacientes no ar.</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="swipe-chevron" style="background:linear-gradient(to right,transparent,rgba(0,0,0,0.04));">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(0,0,0,0.28)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-track" style="background:rgba(0,0,0,0.08);">
+              <div class="progress-fill" style="width:71.4%;background:#5C7C65;"></div>
+            </div>
+            <span class="progress-label" style="color:rgba(0,0,0,0.35);">5/7</span>
+          </div>
+        </div>
+
+        <!-- ==================== SLIDE 6 ==================== -->
+        <div class="slide slide-dark" id="slide6" style="border:1.5px solid rgba(92,124,101,0.35);">
+          <span class="slide-tag">SELEÇÃO DE PORTFÓLIO 2026</span>
+          <h2 class="slide-title font-serif" style="font-size:27px;">
+            Estamos selecionando apenas 10 consultórios nesta semana.
+          </h2>
+
+          <div style="background:#252F2A;border:1px solid rgba(92,124,101,0.3);border-radius:14px;padding:18px 20px;margin-bottom:20px;text-align:center;">
+            <span style="font-size:12px;color:#8F9E94;text-decoration:line-through;display:block;margin-bottom:4px;">Valor Regular: R$ 790,00</span>
+            <div class="font-serif" style="font-size:42px;color:#FFFFFF;font-weight:700;line-height:1;margin-bottom:4px;">
+              R$ 197
+            </div>
+            <span style="font-size:12px;color:#9EC4A9;font-weight:600;display:block;margin-bottom:12px;">taxa única à vista no Pix</span>
+            <div style="border-top:1px solid rgba(255,255,255,0.08);padding-top:10px;font-size:11.5px;color:#B4C2B8;line-height:1.4;">
+              Contrapartida: apenas um print com seu feedback sincero quando a página for ao ar.
+            </div>
+          </div>
+
+          <div class="swipe-chevron" style="background:linear-gradient(to right,transparent,rgba(255,255,255,0.06));">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none"><path d="M9 6l6 6-6 6" stroke="rgba(255,255,255,0.4)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="progress-bar-wrap">
+            <div class="progress-track" style="background:rgba(255,255,255,0.12);">
+              <div class="progress-fill" style="width:85.7%;background:#FFFFFF;"></div>
+            </div>
+            <span class="progress-label" style="color:rgba(255,255,255,0.45);">6/7</span>
+          </div>
+        </div>
+
+        <!-- ==================== SLIDE 7 ==================== -->
+        <div class="slide slide-gradient" id="slide7" style="justify-content:center;text-align:center;padding:0 32px;">
+          <div style="width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:14px;font-weight:800;color:#FFFFFF;">
+            G2F
+          </div>
+          <span class="slide-tag">ÚLTIMAS VAGAS DISPONÍVEIS</span>
+          <h2 class="slide-title font-serif" style="font-size:28px;margin-bottom:12px;">
+            Sua presença digital no mesmo nível do seu consultório.
+          </h2>
+          <p class="slide-desc font-sans" style="font-size:13.5px;color:#D8E2DA;margin-bottom:22px;">
+            Quer colocar sua página no ar ainda nesta semana por menos que o valor de uma única consulta?
+          </p>
+
+          <div style="background:#FFFFFF;color:#18201C;border-radius:12px;padding:14px 20px;font-weight:700;font-size:13.5px;display:flex;flex-direction:column;gap:4px;box-shadow:0 12px 30px rgba(0,0,0,0.3);margin-bottom:14px;">
+            <span>Comente "PORTFÓLIO"</span>
+            <span style="font-size:11.5px;font-weight:500;color:#5E6E64;">ou envie uma mensagem no Direct agora</span>
+          </div>
+
+          <span style="font-size:11px;color:rgba(255,255,255,0.6);letter-spacing:0.3px;">
+            Apenas 10 vagas • Encerra ao preencher a cota
+          </span>
+
+          <div class="progress-bar-wrap">
+            <div class="progress-track" style="background:rgba(255,255,255,0.12);">
+              <div class="progress-fill" style="width:100%;background:#FFFFFF;"></div>
+            </div>
+            <span class="progress-label" style="color:rgba(255,255,255,0.45);">7/7</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- IG ACTIONS -->
+    <div class="ig-actions">
+      <div class="ig-action-icons">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+      </div>
+      <div class="ig-dots" id="igDots">
+        <span class="ig-dot active" data-idx="0"></span>
+        <span class="ig-dot" data-idx="1"></span>
+        <span class="ig-dot" data-idx="2"></span>
+        <span class="ig-dot" data-idx="3"></span>
+        <span class="ig-dot" data-idx="4"></span>
+        <span class="ig-dot" data-idx="5"></span>
+        <span class="ig-dot" data-idx="6"></span>
+      </div>
+      <div style="color:#B0BCB4;">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21l-7-5-7 5V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2z"/></svg>
+      </div>
+    </div>
+
+    <!-- IG CAPTION -->
+    <div class="ig-caption">
+      <strong>grupog2f.ai</strong>
+      <p>O paciente particular avalia sua autoridade nos primeiros 5 segundos. Comente <strong>PORTFÓLIO</strong> para checar vagas.</p>
+      <span class="ig-time">HÁ 1 HORA • SÃO PAULO</span>
+    </div>
+  </div>
+
+  <!-- NAVIGATION CONTROLS -->
+  <div class="nav-bar">
+    <button class="nav-btn" id="prevBtn">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="15 18 9 12 15 6"/></svg>
+      Anterior
+    </button>
+    <button class="nav-btn" id="nextBtn">
+      Próximo
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+  </div>
+
+  <script>
+    const viewport = document.getElementById('carouselViewport');
+    const track = document.getElementById('carouselTrack');
+    const dots = document.querySelectorAll('.ig-dot');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const total = 7;
+    let currentIdx = 0;
+
+    function goToSlide(idx) {
+      if (idx < 0) idx = 0;
+      if (idx >= total) idx = total - 1;
+      currentIdx = idx;
+      track.style.transform = `translateX(-${currentIdx * 420}px)`;
+      dots.forEach((dot, i) => {
+        dot.classList.toggle('active', i === currentIdx);
+      });
+    }
+
+    prevBtn.addEventListener('click', () => goToSlide(currentIdx - 1));
+    nextBtn.addEventListener('click', () => goToSlide(currentIdx + 1));
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        goToSlide(parseInt(dot.dataset.idx, 10));
+      });
+    });
+
+    // DRAG / SWIPE GESTURE SUPPORT
+    let isDragging = false;
+    let startX = 0;
+
+    viewport.addEventListener('mousedown', (e) => {
+      isDragging = true;
+      startX = e.pageX;
+      track.style.transition = 'none';
+    });
+
+    window.addEventListener('mousemove', (e) => {
+      if (!isDragging) return;
+      const currentX = e.pageX;
+      const diff = currentX - startX;
+      track.style.transform = `translateX(-${currentIdx * 420 - diff}px)`;
+    });
+
+    window.addEventListener('mouseup', (e) => {
+      if (!isDragging) return;
+      isDragging = false;
+      track.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)';
+      const diff = e.pageX - startX;
+      if (diff < -50 && currentIdx < total - 1) {
+        goToSlide(currentIdx + 1);
+      } else if (diff > 50 && currentIdx > 0) {
+        goToSlide(currentIdx - 1);
+      } else {
+        goToSlide(currentIdx);
+      }
+    });
+
+    // TOUCH SUPPORT
+    viewport.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+      track.style.transition = 'none';
+    }, { passive: true });
+
+    viewport.addEventListener('touchmove', (e) => {
+      const diff = e.touches[0].clientX - startX;
+      track.style.transform = `translateX(-${currentIdx * 420 - diff}px)`;
+    }, { passive: true });
+
+    viewport.addEventListener('touchend', (e) => {
+      track.style.transition = 'transform 0.35s cubic-bezier(0.2, 0.8, 0.2, 1)';
+      const diff = e.changedTouches[0].clientX - startX;
+      if (diff < -45 && currentIdx < total - 1) {
+        goToSlide(currentIdx + 1);
+      } else if (diff > 45 && currentIdx > 0) {
+        goToSlide(currentIdx - 1);
+      } else {
+        goToSlide(currentIdx);
+      }
+    });
+
+    // KEYBOARD ARROWS
+    window.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') goToSlide(currentIdx + 1);
+      if (e.key === 'ArrowLeft') goToSlide(currentIdx - 1);
+    });
+  </script>
+</body>
+</html>
