@@ -992,10 +992,11 @@ h1, h2, h3, h4 {
     text-align: center;
 }
 
-/* Responsive Rules & Layout Bugfixes */
+/* Responsive Rules & Layout Bugfixes — Senior Web Designer Edition */
 @media (max-width: 1024px) {
     .hero-grid, .profile-grid, .pane-grid {
         grid-template-columns: 1fr;
+        gap: 2.5rem;
     }
     
     .hero-heading {
@@ -1019,148 +1020,442 @@ h1, h2, h3, h4 {
     }
 
     .hero-img-asset {
-        height: 380px;
-    }
-
-    .hero-info-float {
-        position: relative;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        margin: 1rem;
-        border-radius: 12px;
+        height: 340px;
     }
 }
 
 @media (max-width: 768px) {
+    /* Header */
     .header-fixed {
-        height: 60px;
+        height: 56px;
     }
     
     .nav-container {
         padding: 0 16px;
+        height: 100%;
     }
 
     .nav-menu {
         display: none;
     }
     
+    .clinic-logo {
+        gap: 0.5rem;
+    }
+    
+    .logo-mark-svg {
+        width: 20px;
+        height: 20px;
+    }
+
     .logo-main {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
+        letter-spacing: 0.08em;
     }
 
     .logo-sub {
-        font-size: 0.6rem;
+        display: none;
     }
     
     .nav-cta .btn-editorial {
-        padding: 0.5rem 0.9rem;
+        padding: 6px 12px;
         font-size: 0.72rem;
         letter-spacing: 0.04em;
+        border-radius: 6px;
     }
 
+    /* Section Spacings across the whole page */
     .hero-editorial {
-        padding: 80px 16px 40px 16px;
+        padding: 72px 16px 28px 16px;
+    }
+
+    .credibility-strip {
+        padding: 14px 16px;
+        margin-bottom: 36px;
+    }
+
+    .section-profile,
+    .section-treatments,
+    .section-evaluator,
+    .section-faq,
+    .section-booking {
+        padding: 0 16px;
+        margin-bottom: 36px;
+    }
+
+    /* Hero */
+    .hero-grid {
+        gap: 20px;
     }
     
     .hero-meta-tag {
-        font-size: 0.68rem;
-        margin-bottom: 1rem;
+        font-size: 0.65rem;
+        margin-bottom: 10px;
+        letter-spacing: 0.14em;
     }
     
     .hero-heading {
-        font-size: clamp(2rem, 7.5vw, 2.6rem);
-        line-height: 1.2;
+        font-size: clamp(1.9rem, 7.5vw, 2.5rem);
+        line-height: 1.18;
+        margin-bottom: 12px;
     }
 
     .hero-lead {
-        font-size: 0.95rem;
-        line-height: 1.7;
+        font-size: 0.92rem;
+        line-height: 1.65;
+        margin-bottom: 20px;
     }
 
     .hero-actions {
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
+        gap: 10px;
+        margin-bottom: 22px;
     }
 
     .btn-hero-primary, .btn-hero-ghost {
         width: 100%;
         justify-content: center;
-        min-height: 52px;
-        padding: 14px 20px;
-        font-size: 0.9rem;
+        min-height: 48px;
+        padding: 13px 20px;
+        font-size: 0.86rem;
+        border-radius: 8px;
     }
 
     .hero-metrics {
         display: grid;
         grid-template-columns: repeat(3, 1fr);
-        gap: 12px;
-        margin-top: 2rem;
-        padding-top: 1.5rem;
+        gap: 8px;
+        margin-top: 1.5rem;
+        padding-top: 1.2rem;
+        text-align: center;
     }
 
-    .metric-num {
-        font-size: 1.5rem;
+    .metric-block .metric-num {
+        font-size: 1.4rem;
     }
 
-    .metric-label {
-        font-size: 0.68rem;
+    .metric-block .metric-label {
+        font-size: 0.65rem;
+        line-height: 1.3;
+        margin-top: 0.2rem;
+    }
+
+    .hero-image-frame {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid var(--border-warm);
+        background: var(--bg-surface-white);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.05);
     }
 
     .hero-img-asset {
-        height: 280px;
+        height: 220px;
+        width: 100%;
+        object-fit: cover;
+        display: block;
     }
 
-    .section-filosofia,
-    .section-treatments,
-    .section-profile,
-    .section-quiz,
-    .section-faq,
-    .section-booking {
-        padding: 0 16px;
-        margin-bottom: 4rem;
+    .hotspot-overlay {
+        display: none;
     }
 
+    .hero-info-float {
+        position: static;
+        padding: 14px 16px;
+        margin: 0;
+        border: none;
+        border-top: 1px solid var(--border-warm);
+        background: var(--bg-surface-white);
+        border-radius: 0;
+        box-shadow: none;
+    }
+
+    .hero-info-float h3 {
+        font-size: 1rem;
+        margin-bottom: 4px;
+    }
+
+    .hero-info-float p {
+        font-size: 0.82rem;
+        line-height: 1.5;
+        color: var(--text-muted);
+    }
+
+    /* Credibility Strip */
+    .strip-container {
+        flex-direction: column;
+        gap: 8px;
+        text-align: center;
+        padding: 0;
+    }
+
+    .strip-divider {
+        display: none;
+    }
+
+    .strip-item {
+        font-size: 0.7rem;
+        letter-spacing: 0.04em;
+    }
+
+    /* Profile */
     .profile-container {
-        padding: 1.5rem 1.2rem;
+        padding: 20px 16px;
         border-radius: 16px;
     }
 
+    .profile-grid {
+        gap: 20px;
+    }
+
     .profile-portrait-frame {
-        height: 280px;
+        height: 260px;
+        border-radius: 14px;
     }
 
     .profile-title {
-        font-size: 1.8rem;
+        font-size: 1.6rem;
+    }
+
+    .doctor-credentials-line {
+        font-size: 0.78rem;
+    }
+
+    .profile-lead-text {
+        font-size: 0.9rem;
+        line-height: 1.65;
+        margin-bottom: 16px;
+    }
+
+    .profile-details-list {
+        gap: 12px;
+        margin-bottom: 16px;
+    }
+
+    .detail-row {
+        gap: 10px;
+    }
+
+    .detail-content strong {
+        font-size: 0.85rem;
+    }
+
+    .detail-content p {
+        font-size: 0.8rem;
+        line-height: 1.45;
+    }
+
+    .profile-quote-delicate {
+        padding: 12px 14px;
+        font-size: 0.85rem;
+        border-radius: 0 8px 8px 0;
+    }
+
+    /* Treatments Showcase */
+    .treatments-header {
+        margin-bottom: 16px;
     }
 
     .treatments-header h2 {
-        font-size: 2.2rem;
+        font-size: clamp(1.6rem, 6vw, 2rem);
+        margin-bottom: 6px;
     }
 
+    .treatments-header p {
+        font-size: 0.88rem;
+    }
+
+    .treatments-showcase {
+        gap: 12px;
+    }
+
+    .showcase-nav {
+        display: flex;
+        flex-direction: row;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+    }
+    .showcase-nav::-webkit-scrollbar {
+        display: none;
+    }
+
+    .t-nav-btn {
+        flex: 0 0 auto;
+        width: 155px;
+        padding: 10px 12px;
+        border-radius: 10px;
+    }
+
+    .t-nav-num {
+        font-size: 0.65rem;
+        margin-bottom: 2px;
+    }
+
+    .t-nav-title {
+        font-size: 0.78rem;
+        line-height: 1.25;
+    }
+
+    .showcase-content {
+        padding: 18px 16px;
+        border-radius: 14px;
+    }
+
+    .pane-grid {
+        gap: 14px;
+    }
+
+    .pane-tag {
+        font-size: 0.65rem;
+        margin-bottom: 4px;
+    }
+
+    .pane-info h3 {
+        font-size: 1.25rem;
+        margin-bottom: 6px;
+    }
+
+    .pane-info p {
+        font-size: 0.85rem;
+        line-height: 1.55;
+        margin-bottom: 12px;
+    }
+
+    .pane-bullets {
+        gap: 6px;
+    }
+
+    .bullet-item {
+        font-size: 0.78rem;
+        gap: 6px;
+    }
+
+    .pane-img {
+        height: 160px;
+        border-radius: 10px;
+    }
+
+    /* Evaluator */
+    .evaluator-card {
+        padding: 20px 16px;
+        border-radius: 16px;
+    }
+
+    .eval-header h2 {
+        font-size: clamp(1.5rem, 5.5vw, 1.8rem);
+        margin-bottom: 6px;
+    }
+
+    .eval-header p {
+        font-size: 0.85rem;
+        margin-bottom: 14px;
+    }
+
+    .eval-stepper {
+        margin-bottom: 16px;
+    }
+
+    .eval-step h3 {
+        font-size: 1.05rem;
+        margin-bottom: 12px;
+    }
+
+    .options-grid {
+        gap: 8px;
+    }
+
+    .opt-btn {
+        padding: 12px 14px;
+        border-radius: 10px;
+    }
+
+    .opt-title {
+        font-size: 0.9rem;
+        margin-bottom: 2px;
+    }
+
+    .opt-sub {
+        font-size: 0.76rem;
+        line-height: 1.35;
+    }
+
+    .result-container {
+        padding: 12px 0;
+    }
+
+    .btn-xl {
+        width: 100%;
+        justify-content: center;
+        min-height: 48px;
+        padding: 12px 16px;
+        font-size: 0.82rem;
+    }
+
+    /* FAQ */
+    .faq-header h2 {
+        font-size: clamp(1.5rem, 5.5vw, 1.8rem);
+        margin-bottom: 16px;
+    }
+
+    .faq-row {
+        margin-bottom: 8px;
+        border-radius: 12px;
+    }
+
+    .faq-btn {
+        padding: 12px 14px;
+        font-size: 0.86rem;
+    }
+
+    .faq-content {
+        padding: 0 14px;
+    }
+
+    .faq-row.active .faq-content {
+        padding: 0 14px 14px 14px;
+    }
+
+    .faq-content p {
+        font-size: 0.82rem;
+        line-height: 1.5;
+    }
+
+    /* Booking Banner */
     .booking-banner {
-        padding: 3rem 1.5rem;
-        border-radius: 18px;
+        padding: 24px 16px;
+        border-radius: 16px;
     }
 
     .booking-banner h2 {
-        font-size: 2.2rem;
+        font-size: clamp(1.5rem, 5.5vw, 1.9rem);
+        line-height: 1.25;
+        margin-bottom: 8px;
     }
 
     .booking-banner p {
-        font-size: 0.95rem;
+        font-size: 0.86rem;
+        margin-bottom: 16px;
     }
-    
+
+    /* Footer */
+    .footer-editorial {
+        padding: 24px 16px;
+    }
+
     .footer-flex {
         flex-direction: column;
-        gap: 1.5rem;
+        gap: 14px;
         text-align: center;
     }
 
     .footer-brand-flex {
         flex-direction: column;
         align-items: center;
+        gap: 6px;
     }
     
     .text-right {
@@ -1168,14 +1463,38 @@ h1, h2, h3, h4 {
     }
 }
 
+/* Floating WhatsApp Button for Ortopedia */
+.wpp-float-editorial {
+    position: fixed;
+    bottom: calc(18px + env(safe-area-inset-bottom, 0px));
+    right: 18px;
+    z-index: 99;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #25D366;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #FFFFFF;
+    font-size: 26px;
+    box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+    transition: transform 0.2s var(--ease-out-expo), box-shadow 0.2s var(--ease-out-expo);
+    text-decoration: none !important;
+}
+.wpp-float-editorial:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.55);
+}
+.wpp-float-editorial:active {
+    transform: scale(0.96);
+}
 @media (max-width: 480px) {
-    .logo-sub {
-        display: none;
-    }
-    
-    .hero-metrics {
-        grid-template-columns: 1fr;
-        gap: 14px;
-        text-align: center;
+    .wpp-float-editorial {
+        bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+        right: 16px;
+        width: 50px;
+        height: 50px;
+        font-size: 24px;
     }
 }

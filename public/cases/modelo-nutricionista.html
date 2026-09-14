@@ -180,6 +180,9 @@
     .header-cta:active {
       transform: scale(0.97);
     }
+    .header-cta .cta-short {
+      display: none;
+    }
 
     /* ========== HERO — MASTERPIECE ARCHITECTURAL EDITORIAL ========== */
     .hero-master {
@@ -1463,54 +1466,90 @@
 
     @media (max-width: 768px) {
       .site-header {
-        padding: 10px 16px;
-        height: 58px;
+        padding: 0 16px;
+        height: 56px;
       }
       .header-nav { display: none; }
-      .header-brand .brand-title { font-size: 0.95rem; }
-      .header-brand .brand-sub { font-size: 0.6rem; }
+      .header-brand { gap: 8px; }
+      .header-brand .brand-mark {
+        width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+        border-radius: 6px;
+      }
+      .header-brand .brand-title {
+        font-size: 0.95rem;
+        font-weight: 600;
+        white-space: nowrap;
+      }
+      .header-brand .brand-sub {
+        display: none;
+      }
       .header-cta {
-        padding: 8px 14px;
+        padding: 7px 14px;
         font-size: 0.78rem;
-        border-radius: 8px;
+        font-weight: 600;
+        border-radius: 99px;
+        flex-shrink: 0;
+        gap: 0;
+      }
+      .header-cta svg {
+        display: none;
+      }
+      .header-cta .cta-full {
+        display: none;
+      }
+      .header-cta .cta-short {
+        display: inline;
       }
 
       .hero-master {
-        padding-top: 80px;
-        padding-bottom: 36px;
+        padding-top: 76px;
+        padding-bottom: 32px;
       }
       .hero-eyebrow {
-        margin-bottom: 14px;
+        margin-bottom: 12px;
       }
       .hero-master-heading {
-        font-size: clamp(2rem, 7.5vw, 2.7rem);
+        font-size: clamp(1.9rem, 7vw, 2.5rem);
         line-height: 1.2;
-        margin-bottom: 16px;
+        margin-bottom: 14px;
         text-wrap: balance;
       }
       .hero-master-lead {
-        font-size: 0.95rem;
-        line-height: 1.7;
-        margin-bottom: 24px;
+        font-size: 0.92rem;
+        line-height: 1.65;
+        margin-bottom: 20px;
       }
       .hero-cta-cluster {
         flex-direction: column;
         align-items: stretch;
-        gap: 12px;
+        gap: 10px;
+        margin-bottom: 20px;
       }
-      .btn-hero-primary, .btn-hero-minimal {
+      .btn-hero-primary {
         width: 100%;
         justify-content: center;
-        min-height: 52px;
-        font-size: 0.95rem;
-        padding: 14px 20px;
+        min-height: 48px;
+        font-size: 0.9rem;
+        font-weight: 600;
+        padding: 13px 20px;
+        border-radius: 12px;
+      }
+      .btn-hero-minimal {
+        width: 100%;
+        justify-content: center;
+        min-height: 44px;
+        font-size: 0.85rem;
+        padding: 11px 18px;
+        border-radius: 12px;
       }
       .hero-proof-strip {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
         gap: 14px 12px;
-        margin-top: 24px;
-        padding-top: 20px;
+        margin-top: 20px;
+        padding-top: 18px;
         border-top: 1px solid var(--border-subtle);
       }
       .proof-sep { display: none; }
@@ -1629,7 +1668,8 @@
   </ul>
 
   <a href="https://wa.me/5511962236635?text=Olá%20Dra.%20Mariana%2C%20gostaria%20de%20agendar%20uma%20avaliação%20nutricional." target="_blank" class="header-cta">
-    <span>Agendar Consulta</span>
+    <span class="cta-full">Agendar Consulta</span>
+    <span class="cta-short">Agendar</span>
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
   </a>
 </header>
